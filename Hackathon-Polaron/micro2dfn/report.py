@@ -401,7 +401,8 @@ def write_report(out_dir: str, markers: pd.DataFrame,
     A("")
 
     A("## Batch differences\n")
-    clear = deltas[deltas["clear"]]
+    clear = (deltas[deltas["clear"]] if len(deltas)
+             and "clear" in deltas.columns else deltas)
     if len(clear):
         A("**Differences surviving Benjamini–Hochberg (FDR 0.10)** "
           "across all tested pair–marker combinations (two-sided "

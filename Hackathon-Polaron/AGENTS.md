@@ -202,6 +202,36 @@ Key facts:
   graphite now read from measured `gr_radius_eff_um`); saved outputs
   stand as the record — radius-channel sensitivity is untested until
   the next run.
+- **Accessible-Si fix (2026-10):** the shipped `si_accessible_frac`
+  mixed connected-component counts with a watershed denominator —
+  hawkfj64 was 0.524, correct is 0.371 (area-weighted) / 0.246
+  (number-frac). `si_accessible_frac` now equals
+  `si_contact_area_frac`; the new `si_contact_*` family +
+  `contact_population` flag name the distinct quantities. Markers in
+  `dfn_output/` carry the OLD semantics; corrected recompute lands in
+  `dfn_output_v2/` (same frozen recipe). `--reuse` now warns when
+  cached markers predate the current extraction code. See
+  AUDIT_LEDGER.md.
+- **Stats fixes (2026-10):** `vcompare/stats.py` — BH step-up was
+  elementwise-blocked (`BH([.03,.04])`→`[F,T]`); a NaN feature
+  poisoned the permutation null → p=0. Both fixed; `pairwise_table`/
+  `loo_sweep` filter finite per feature and flag `insufficient`.
+  `polaron_qc` scorecard weights now derive redundancy from baseline
+  only (was pooled incl. judged batches — contradicted its own
+  docstring).
+- **Orientation (2026-10):** `micro2dfn/orientation.py` +
+  `analyze_orientation.py` → `orientation_analysis/` — validated 2-D
+  nematic S (S_x_2d, S_dir_2d, θ_director, declared populations +
+  weights + coverage + histograms + empirical nulls + object
+  bootstrap). The old FFT route stays withdrawn. Tests:
+  `tests/test_orientation.py` (+ `test_si_contact.py`,
+  `test_stats.py` — plain scripts, `.venv/bin/python tests/<f>.py`).
+- **spatial/channel fixes (2026-10):** `analyze_channels.py` masks
+  now rasterized at exact watershed identity (was 27-31% coverage);
+  `analyze_spatial.py` reports `bright_*` (all bright) vs `si_*`
+  (classified) separately and `cracklike_frac` tests true
+  frame-vertical (the old `>60°` test selected near-horizontal).
+  Spatial output is `spatial_features_v2.csv`.
 - Built: optional 3-D reconstruction branch — see `recon3d` below.
 - `run_dfn.py` now uses reference-only calibration by default:
   thresholds + classifier t_core are fitted on `--baseline Batch_3`
@@ -299,3 +329,56 @@ Key facts:
   pores invisible); batch comparison of ensembles only. Headline
   metrics are spanning rate + spanning pore share; conditional τ on
   the spanning subset is indicative only (small n).
+
+## Assignment accuracy evaluation
+
+```bash
+.venv/bin/python -B assign_new_images.py --validate --out new_image_assignment/accuracy_run2
+.venv/bin/python -B -m unittest test_assignment_accuracy -v
+```
+
+Choose a fresh `--out`: validation refuses to overwrite existing results.
+The first saved evaluation is in `new_image_assignment/accuracy/`:
+`summary.csv`, `confusion.csv`, `predictions.csv`, `folds.csv`, and
+`validation.json` (settings, input/code hashes, and limitations).
+
+This tests the existing tentative envelope rule without tuning it:
+leave-one-image-out and leave-one-group-out, refitting batch ranges,
+medians, and MAD scales on training rows only. Accuracy counts abstentions
+as unsuccessful classifications; selective accuracy is reported alongside
+coverage. Balanced accuracy is the mean of per-class recalls. Uncertainty
+is a conditional cluster bootstrap over held-out predictions, not a
+full-pipeline refit or a calibrated probability for a new image.
+
+This is classifier-only validation of saved measurements. Segmentation,
+object classification, and noise adjustment were previously fitted on all
+Batch_3 images, so the evaluation is not independent end-to-end validation.
+The organizer clarified that batches are artificially grouped crops from
+about 15 parent electrode images. Existing `group_id` values are inferred
+source/acquisition/export strata, not confirmed sessions or parents.
+Use `--groups`, `--group-column`, and `--group-kind confirmed_parent` (or
+`confirmed_specimen`) when the actual mapping is available. New-image
+accuracy remains unknown until confirmed labels are provided.
+
+## teamjester_deck — 7-slide overview of the TeamJester GitHub *main* algorithm
+
+Separate from this repo's own pipelines: describes TeamJester main @
+`7f0048e` (clean worktree at `../teamjester_main_7f0048e`).
+
+```bash
+cd teamjester_deck && ./build.sh            # numbers -> assets -> PPTX/PDF -> QA
+./build.sh --verify                         # re-run main's code first (py3.10 env)
+./build.sh --new-batch <categorise_results.csv|webapp.json|manual.json> \
+           --new-batch-name "Batch 4" [--out NAME]   # fill slide 7's pending row
+```
+
+- Every slide number comes from `src/deck_numbers.py` (main's committed
+  tables) and is listed in `CLAIM_LEDGER.csv/.md`; `src/check_deck.py` checks
+  schema order, notes/footer, PPTX↔PDF text, fonts and links.
+- Main's code reproduces its committed masks/features/LOO exactly
+  (`provenance/verify_*`); a from-scratch rebuild adds 12 feature columns and
+  changes classifier numbers (`provenance/clean_rebuild_summary.json`).
+- Headless LibreOffice ignores `~/Library/Fonts`: the build exports with the
+  private profile `teamjester_deck/.lo_profile` (fonts in `user/fonts`).
+  python-pptx multi-series XY charts lose all but one series in LibreOffice —
+  slide 6 uses line charts with gaps instead.

@@ -373,20 +373,68 @@ CARDS: dict[str, dict] = {
     "si_enclosed_share": dict(
         name="Fully-enclosed Si share",
         unit="fraction", group="D. Pores & transport",
-        measures="Share of silicon particles with zero pore contact.",
-        method="Per-object contact test.",
+        measures="Share of watershed-classified Si particles with zero "
+                 "resolved-pore contact.",
+        method="Per-particle contact test over watershed label ids "
+               "(fixed 2026-10: connected components merged touching "
+               "particles and corrupted the count).",
         dfn=None,
-        warns="High -> much silicon is electrochemically isolated.",
+        warns="High -> much silicon may be poorly connected to "
+              "pore space (NOT proof of inactivity).",
         caveat="Runs high (~0.7-0.99) in every image — relative "
-               "comparison only."),
-    "si_accessible_frac": dict(
-        name="Accessible silicon fraction",
+               "comparison only; resolved pores only."),
+    "si_contact_num_frac": dict(
+        name="Pore-contacted Si share (by particle count)",
         unit="fraction", group="D. Pores & transport",
-        measures="Share of silicon within reach of a pore.",
-        method="1 - si_enclosed_share.",
+        measures="Number fraction of classified particles touching a "
+                 "resolved pore.",
+        method="1 - si_enclosed_share over watershed labels.",
+        dfn=None,
+        warns="Low -> few particles contact resolved pores.",
+        caveat="Number fraction — big particles count the same as "
+               "small ones; not wetting/activity."),
+    "si_contact_area_frac": dict(
+        name="Pore-contacted Si share (area-weighted)",
+        unit="fraction", group="D. Pores & transport",
+        measures="Share of classified-Si AREA belonging to particles "
+                 "that touch a resolved pore.",
+        method="Area-weighted contacted-particle share over watershed "
+               "labels.",
+        dfn="Feeds si_accessible_frac (DFN active-material proxy).",
+        warns="Low -> much Si area may be poorly connected.",
+        caveat="Resolved 2-D contact only — not wetting, activity, "
+               "or 3-D connectivity."),
+    "si_area_near_pore_frac": dict(
+        name="Si area inside pore-contact band",
+        unit="fraction", group="D. Pores & transport",
+        measures="Share of Si pixels lying within the ~75 nm contact "
+                 "band itself.",
+        method="(si_part & near_pore) / si_part.",
+        dfn=None,
+        warns=None,
+        caveat="Very small — most contact is glancing in 2-D."),
+    "contact_population": dict(
+        name="Contact-population flag",
+        unit="text", group="F. imaging guards",
+        measures="Which label population contact metrics used.",
+        method="'watershed_particles' (correct) or "
+               "'connected_components_FALLBACK' (warns).",
+        dfn=None, warns=None, caveat=None),
+    "si_accessible_frac": dict(
+        name="Accessible silicon fraction (resolved-pore-contact proxy)",
+        unit="fraction", group="D. Pores & transport",
+        measures="Share of classified-Si area in particles touching a "
+                 "resolved pore — the DFN's dead-Si proxy bracket.",
+        method="= si_contact_area_frac (area-weighted, watershed "
+               "identity). Renamed semantics 2026-10: the shipped "
+               "version mixed connected-component counts with a "
+               "watershed denominator (hawkfj64: 0.524 -> 0.371).",
         dfn="Scales Secondary active-material fraction (dead-Si proxy)",
-        warns="Low -> much of the silicon may be inactive.",
-        caveat=None),
+        warns="Low -> much Si area may be poorly connected to "
+              "resolved pores.",
+        caveat="A 2-D resolved-pore-contact structural proxy — NOT "
+               "electrochemical activity, wetting, or 3-D "
+               "connectivity."),
     "corr_len_pore_um": dict(
         name="Pore correlation length",
         unit="um", group="D. Pores & transport",
@@ -448,18 +496,23 @@ CARDS: dict[str, dict] = {
         dfn=None, warns="Strong -> uneven illumination left over.",
         caveat="Guard rail."),
     "pore_frac_tile_err": dict(
-        name="Porosity tile uncertainty",
+        name="Porosity tile spread (within-image)",
         unit="fraction", group="Uncertainty",
-        measures="How much the measured porosity could differ just because "
-                 "the image is finite.",
-        method="95% CI half-width across a 5x5 tile jackknife.",
-        dfn=None, warns=None, caveat=None),
+        measures="Within-image spatial spread of the measured porosity.",
+        method="1.96*sd/sqrt(n) of 5x5 tile fractions — a tile SE, NOT "
+               "a jackknife and NOT repeat-acquisition uncertainty; "
+               "tiles are spatially correlated so it understates.",
+        dfn=None, warns=None,
+        caveat="Heterogeneity diagnostic only — do not read as a "
+               "measurement confidence interval."),
     "si_frac_tile_err": dict(
-        name="Si fraction tile uncertainty",
+        name="Si fraction tile spread (within-image)",
         unit="fraction", group="Uncertainty",
-        measures="Same finite-image uncertainty for the silicon fraction.",
-        method="95% CI half-width across a 5x5 tile jackknife.",
-        dfn=None, warns=None, caveat=None),
+        measures="Within-image spatial spread of the Si fraction.",
+        method="Same tile SE as pore_frac_tile_err (not a jackknife).",
+        dfn=None, warns=None,
+        caveat="Heterogeneity diagnostic only — do not read as a "
+               "measurement confidence interval."),
     "is_problem_photo": dict(
         name="Problem-photo flag",
         unit="0/1", group="F. Imaging guards",
@@ -494,11 +547,16 @@ CARDS: dict[str, dict] = {
         method="Count of bright_fine objects.",
         dfn=None, warns=None, caveat=None),
     "si_d10_num_um": dict(
-        name="Si particle diameter, 10th pct (count-weighted)",
+        name="Si 2-D profile diameter, 10th pct (count-weighted)",
         unit="um", group="B. Silicon particles",
-        measures="Small end of the silicon size distribution.",
+        measures="Small end of the 2-D section-profile distribution — "
+                 "NOT the smallest particle diameter: a grazing cut "
+                 "through a large sphere yields a small profile "
+                 "(d_section = 2*sqrt(R^2-z^2)).",
         method="10th percentile of equivalent diameters.",
-        dfn=None, warns=None, caveat=None),
+        dfn=None, warns=None,
+        caveat="2-D profile diagnostic only; excluded from primary "
+               "size claims (stereological ambiguity)."),
     "si_d90_num_um": dict(
         name="Si particle diameter, 90th pct (count-weighted)",
         unit="um", group="B. Silicon particles",

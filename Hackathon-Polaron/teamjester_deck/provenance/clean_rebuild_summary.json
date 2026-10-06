@@ -1,0 +1,106 @@
+{
+ "note": "Fresh rebuild = main's run_all.py --fast at 7f0048e on an emptied outputs/ folder (run_all --clean itself crashes), Python 3.10 env per .devin/blueprint.yaml",
+ "tables": {
+  "segment_info.csv": "identical",
+  "threshold_sensitivity.csv": "identical",
+  "cross_detector.csv": "identical",
+  "half_agreement.csv": "identical",
+  "quality_guards.csv": "identical values and flags"
+ },
+ "features_common_columns_identical": true,
+ "extra_columns": [
+  "elong_pore_area_frac",
+  "elong_pore_n_mm2",
+  "elong_pore_hfrac",
+  "pore_aspect_p90",
+  "pore_small_n_mm2",
+  "pore_perim_mm",
+  "si_border_pore",
+  "bse_grad_coh",
+  "inl_lbp_ent",
+  "inl_lbp_flat",
+  "inl_grad_coh",
+  "etd_fft_hi"
+ ],
+ "kept_fresh": [
+  "pore_frac",
+  "graphite_frac",
+  "silicon_frac",
+  "si_d50_um",
+  "si_solidity",
+  "gr_chord_h_um",
+  "gr_chord_ratio_hv",
+  "gr_st_coherence",
+  "pore_thick_d10_um",
+  "pore_thick_d50_um",
+  "large_gap_frac",
+  "pores_per_mm2",
+  "ring_porosity_250nm",
+  "ring_porosity_500nm",
+  "corr_len_gr_um",
+  "si_clarkevans_R",
+  "inlens_edge_density",
+  "inlens_bulk_texture",
+  "etd_roughness",
+  "bse_bulk_texture",
+  "elong_pore_n_mm2",
+  "pore_aspect_p90",
+  "si_border_pore",
+  "bse_grad_coh",
+  "inl_lbp_ent",
+  "inl_lbp_flat",
+  "inl_grad_coh",
+  "etd_fft_hi"
+ ],
+ "kept_committed": [
+  "pore_frac",
+  "graphite_frac",
+  "silicon_frac",
+  "si_d50_um",
+  "si_solidity",
+  "gr_chord_h_um",
+  "gr_chord_ratio_hv",
+  "gr_st_coherence",
+  "pore_thick_d10_um",
+  "pore_thick_d50_um",
+  "large_gap_frac",
+  "pores_per_mm2",
+  "ring_porosity_250nm",
+  "ring_porosity_500nm",
+  "corr_len_gr_um",
+  "si_clarkevans_R",
+  "inlens_edge_density",
+  "inlens_bulk_texture",
+  "etd_roughness",
+  "bse_bulk_texture"
+ ],
+ "pct_delta_identical_on_common": true,
+ "class_changes_on_common": [],
+ "holm_survivors_fresh": [
+  [
+   "Batch_1",
+   "bse_bulk_texture"
+  ],
+  [
+   "Batch_1",
+   "inl_lbp_flat"
+  ],
+  [
+   "Batch_2",
+   "bse_bulk_texture"
+  ]
+ ],
+ "loo_allfeatures_fresh": [
+  15,
+  31
+ ],
+ "loo_safe_fresh": [
+  20,
+  31
+ ],
+ "b3_out_fresh": [
+  8,
+  17
+ ],
+ "shuffled_fresh": 0.3806451612903225
+}

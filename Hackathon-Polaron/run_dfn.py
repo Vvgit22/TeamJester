@@ -350,6 +350,31 @@ def run(out_dir: str = "dfn_output", sim: bool = True,
             rec = json.load(fh)
         t_pore, t_si, t_core = rec["t_pore"], rec["t_si"], rec["t_core"]
         manifest_path = os.path.join(out_dir, "run_manifest.json")
+        # provenance check: extraction code may have changed since the
+        # cache was built (e.g. the accessible-Si fix changed which
+        # markers mean what). Warn loudly and stamp the cache row so
+        # downstream tables can never silently mix extraction versions.
+        stale = []
+        if os.path.exists(manifest_path):
+            man = json.load(open(manifest_path))
+            old_code = man.get("code_md5", {})
+            for f in ("io.py", "segment.py", "objects.py", "markers.py"):
+                cur = _file_md5(os.path.join(
+                    os.path.dirname(os.path.abspath(__file__)),
+                    "micro2dfn", f))
+                if old_code.get(f) and old_code[f] != cur:
+                    stale.append(f)
+            if man.get("recipe_md5") and \
+                    man["recipe_md5"] != _file_md5(recipe_path):
+                stale.append("RECIPE (cached markers were extracted "
+                             "under a different recipe — thresholds "
+                             "changed the masks themselves)")
+        if stale:
+            print(f"  WARNING --reuse: extraction code changed since "
+                  f"these markers were cached: {stale}. Cached values "
+                  f"may carry old measurement semantics (see "
+                  f"AUDIT_LEDGER.md). Re-extract for corrected numbers.")
+            markers["cache_provenance_warning"] = ";".join(stale)
         print(f"--reuse: loaded {len(markers)} cached marker rows "
               f"+ frozen recipe {recipe_path} "
               f"(fitted on {rec['fitted_on']})")
@@ -376,8 +401,14 @@ def run(out_dir: str = "dfn_output", sim: bool = True,
                   f"(fitted on {rec['fitted_on']}, "
                   f"{rec['n_fit_images']} images, {rec['created_utc']})")
         else:
-            ref = baseline if baseline in images \
-                else sorted(batches)[-1]
+            if baseline in images:
+                ref = baseline
+            else:
+                ref = sorted(batches)[-1]
+                print(f"  WARNING: requested baseline '{baseline}' not "
+                      f"present — falling back to '{ref}' for the "
+                      f"recipe fit. Pass --baseline explicitly if this "
+                      f"substitution is not intended.")
             ref_im = images[ref]
             print(f"fitting recipe on baseline {ref} "
                   f"({len(ref_im)} images) — frozen thereafter")
@@ -417,8 +448,9 @@ def run(out_dir: str = "dfn_output", sim: bool = True,
             for im in ims:
                 print(f"  {b}/{im.image_id}", flush=True)
                 seg = segment.segment(im, t_pore, t_si)
-                ob = obj_.extract_objects(im, seg == config.SI)
-                per_image[im.image_id] = (im, seg, ob)
+                ob, ws_lab = obj_.extract_objects(
+                    im, seg == config.SI, return_labels=True)
+                per_image[im.image_id] = (im, seg, ob, ws_lab)
                 all_objects.append(ob)
         objects = pd.concat(all_objects, ignore_index=True)
         objects = obj_.classify_objects(objects, t_core)
@@ -431,9 +463,11 @@ def run(out_dir: str = "dfn_output", sim: bool = True,
         for b, ims in images.items():
             for im in ims:
                 seg = per_image[im.image_id][1]
-                part, fine = obj_.particle_mask(im, seg == config.SI,
-                                                objects)
-                f = mk.extract_markers(im, seg, objects, part, fine)
+                part, fine, lab_part = obj_.particle_mask(
+                    im, seg == config.SI, objects,
+                    lab=per_image[im.image_id][3])
+                f = mk.extract_markers(im, seg, objects, part, fine,
+                                       si_labels=lab_part)
                 mk_rows.append(f)
                 if len(mk_rows) <= N_DEBUG_FIGS:
                     report.fig_classification_overlay(

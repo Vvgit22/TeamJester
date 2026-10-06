@@ -1,0 +1,131 @@
+{
+  "created_utc": "2026-10-04T11:15:28.608946+00:00",
+  "evaluation_scope": "conditional_classifier_only",
+  "end_to_end_validation": false,
+  "group_kind": "inferred",
+  "group_column": "group_id",
+  "features": [
+    "si_candidate_frac",
+    "uncertain_bright_frac",
+    "si_d50_um",
+    "si_d90_um",
+    "si_clustering_R",
+    "pore_frac",
+    "pores_per_mpx",
+    "pores_per_mpx_noise_adj",
+    "pore_anisotropy"
+  ],
+  "z_threshold": 2.5,
+  "n_boot": 10000,
+  "seed": 0,
+  "new_image_accuracy": null,
+  "caveats": [
+    "Empirical classifier-only cross-validation, not an independent end-to-end test.",
+    "The tentative envelope rule is evaluated as implemented, before any blanket provenance-based abstention. No feature, rule or threshold was tuned here.",
+    "Every fold refits batch ranges, medians and MAD scales using training rows only.",
+    "Saved segmentation, object classification and noise adjustment were already calibrated on all Batch_3 images, including held-out reference images.",
+    "The feature set and assignment rule were previously explored on this dataset; these labels are curated challenge categories, not independently sampled lots.",
+    "The group bootstrap resamples clusters of already-held-out predictions. It is conditional on this feature table, grouping and fitted CV predictions; it does not refit the pipeline or cover uncertainty in source identity or calibration.",
+    "Accuracy counts abstentions as unsuccessful classifications. Selective accuracy excludes abstentions and must be read together with coverage.",
+    "Overall accuracy weights crops equally; balanced accuracy averages class recalls.",
+    "The three new images have no confirmed labels here. Their accuracy and individual probabilities of correctness cannot be inferred from feature coverage or this score.",
+    "Groups are inferred source/acquisition/export strata, not confirmed parents or sessions. Holding them out does not guarantee independent specimens."
+  ],
+  "inputs": {
+    "features": {
+      "path": "/Users/raduvadanici/Downloads/Hackathon-Polaron/validated_comparison/per_image_features.csv",
+      "md5": "f85577b6cef990c64a873cf7f8abf253"
+    },
+    "groups": {
+      "path": "/Users/raduvadanici/Downloads/Hackathon-Polaron/image_acquisition.csv",
+      "md5": "315d18fd2401df7579533d6592561377"
+    },
+    "recipe": {
+      "path": "/Users/raduvadanici/Downloads/Hackathon-Polaron/validated_comparison/recipe.json",
+      "md5": "f74ca97b8837446a7afa0548d6242ca1"
+    }
+  },
+  "code_md5": {
+    "/Users/raduvadanici/Downloads/Hackathon-Polaron/assign_new_images.py": "212da4b6177ef26935679e5f44f8f764",
+    "/Users/raduvadanici/Downloads/Hackathon-Polaron/vcompare/config.py": "e5144f417a4d016b13b7c0541fa52c63",
+    "/Users/raduvadanici/Downloads/Hackathon-Polaron/vcompare/extract.py": "fb12c7e889805c73c37e524a070f983b",
+    "/Users/raduvadanici/Downloads/Hackathon-Polaron/vcompare/assemble.py": "57e5c3f61b3ad8ab7316f9688f33f45c",
+    "/Users/raduvadanici/Downloads/Hackathon-Polaron/vcompare/recipe.py": "9027beef255b2943775d30bad5900577"
+  },
+  "numpy_version": "2.5.3",
+  "pandas_version": "3.0.6",
+  "metrics": [
+    {
+      "protocol": "leave_one_group_out",
+      "model": "envelope_rule",
+      "n_images": 31,
+      "n_groups": 13,
+      "n_correct": 14,
+      "accuracy": 0.451612903225806,
+      "balanced_accuracy": 0.330532212885154,
+      "n_answered": 27,
+      "n_abstained": 4,
+      "coverage": 0.870967741935484,
+      "selective_accuracy": 0.518518518518518,
+      "conditional_group_bootstrap_lo": 0.258064516129032,
+      "conditional_group_bootstrap_hi": 0.642857142857143,
+      "recall_Batch_1": 0.285714285714286,
+      "recall_Batch_2": 0.0,
+      "recall_Batch_3": 0.705882352941176
+    },
+    {
+      "protocol": "leave_one_group_out",
+      "model": "majority_baseline",
+      "n_images": 31,
+      "n_groups": 13,
+      "n_correct": 17,
+      "accuracy": 0.548387096774194,
+      "balanced_accuracy": 0.333333333333333,
+      "n_answered": 31,
+      "n_abstained": 0,
+      "coverage": 1.0,
+      "selective_accuracy": 0.548387096774194,
+      "conditional_group_bootstrap_lo": 0.28,
+      "conditional_group_bootstrap_hi": 0.764705882352941,
+      "recall_Batch_1": 0.0,
+      "recall_Batch_2": 0.0,
+      "recall_Batch_3": 1.0
+    },
+    {
+      "protocol": "leave_one_image_out",
+      "model": "envelope_rule",
+      "n_images": 31,
+      "n_groups": 13,
+      "n_correct": 16,
+      "accuracy": 0.516129032258064,
+      "balanced_accuracy": 0.369747899159664,
+      "n_answered": 27,
+      "n_abstained": 4,
+      "coverage": 0.870967741935484,
+      "selective_accuracy": 0.592592592592592,
+      "conditional_group_bootstrap_lo": 0.28,
+      "conditional_group_bootstrap_hi": 0.735294117647059,
+      "recall_Batch_1": 0.285714285714286,
+      "recall_Batch_2": 0.0,
+      "recall_Batch_3": 0.823529411764706
+    },
+    {
+      "protocol": "leave_one_image_out",
+      "model": "majority_baseline",
+      "n_images": 31,
+      "n_groups": 13,
+      "n_correct": 17,
+      "accuracy": 0.548387096774194,
+      "balanced_accuracy": 0.333333333333333,
+      "n_answered": 31,
+      "n_abstained": 0,
+      "coverage": 1.0,
+      "selective_accuracy": 0.548387096774194,
+      "conditional_group_bootstrap_lo": 0.28,
+      "conditional_group_bootstrap_hi": 0.764705882352941,
+      "recall_Batch_1": 0.0,
+      "recall_Batch_2": 0.0,
+      "recall_Batch_3": 1.0
+    }
+  ]
+}

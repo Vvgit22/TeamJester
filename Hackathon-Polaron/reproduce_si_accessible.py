@@ -15,7 +15,8 @@ import sys
 
 import numpy as np
 import pandas as pd
-from scipy.ndimage import binary_dilation, binary_erosion, label
+from scipy.ndimage import binary_dilation, binary_erosion
+from skimage.measure import label, regionprops
 
 sys.path.insert(0, ".")
 from micro2dfn import config, io, objects as obj_, segment
@@ -29,7 +30,7 @@ def main(image_id="img_hawkfj64", batch="Batch_3"):
     ob = obj_.extract_objects(im, si_mask)
     ob = obj_.classify_objects(ob, rec["t_core"])
     sub = ob[ob.kind == "si_particle"]
-    si_part, _ = obj_.particle_mask(im, si_mask, ob)
+    si_part, _, _ = obj_.particle_mask(im, si_mask, ob)
 
     pore = seg == config.PORE
     near_pore = binary_dilation(pore, iterations=config.CONTACT_DILATION_PX)
@@ -39,8 +40,7 @@ def main(image_id="img_hawkfj64", batch="Batch_3"):
     lab_cc = label(si_part)
     enclosed_cc = 0
     cov_cc = []
-    for r in __import__("skimage.measure", fromlist=["regionprops"]
-                        ).regionprops(lab_cc):
+    for r in regionprops(lab_cc):
         isb = si_boundary[r.coords[:, 0], r.coords[:, 1]]
         nb = int(isb.sum())
         cov = float((isb & near_pore[r.coords[:, 0],

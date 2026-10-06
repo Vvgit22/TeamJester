@@ -98,8 +98,14 @@ def _geodesic_tau(pore: np.ndarray, axis: str = "vertical"
 
 
 
-def _tile_jackknife(mask: np.ndarray, grid: int) -> float:
-    """95% CI half-width of the phase fraction across tiles."""
+def _tile_se(mask: np.ndarray, grid: int) -> float:
+    """Tile standard error of the phase fraction (5x5 grid).
+
+    NOT a jackknife and NOT repeat-acquisition uncertainty: it is
+    1.96 * sd(tile fractions)/sqrt(n_tiles) — a within-image spatial
+    spread treated as if tiles were independent (they are spatially
+    correlated, so this UNDERSTATES true uncertainty). Use only as a
+    heterogeneity diagnostic."""
     h, w = mask.shape
     fracs = [mask[i * h // grid:(i + 1) * h // grid,
                   j * w // grid:(j + 1) * w // grid].mean()
@@ -121,11 +127,16 @@ def _weighted_quantile(values, weights, q):
 def extract_markers(im: BSEImage, seg: np.ndarray,
                     objects: pd.DataFrame,
                     si_part: np.ndarray,
-                    bright_fine: np.ndarray) -> dict:
+                    bright_fine: np.ndarray,
+                    si_labels: np.ndarray | None = None) -> dict:
     """Full marker dictionary for one image.
 
     objects: classified object table for THIS image.
     si_part / bright_fine: masks rebuilt from the classifier.
+    si_labels: watershed label image over si_part (same ids as the
+        objects table) — required for per-particle contact metrics;
+        without it they fall back to connected components and a
+        `contact_population` warning flag is emitted.
     """
     um = im.pixel_um
     f: dict[str, float] = {}
@@ -216,11 +227,19 @@ def extract_markers(im: BSEImage, seg: np.ndarray,
     else:
         f["si_pore_contact"] = f["si_pore_dist_mean_um"] = np.nan
     # per-particle boundary-coverage distribution (ASSB-style coverage%):
-    # continuous replacement for the binary enclosed test
+    # measured over WATERSHED labels (same ids as the objects table) —
+    # connected components merge touching watershed particles and
+    # corrupt the enclosed/contacted counts (shipped bug, 2026-10-04:
+    # hawkfj64 enclosed 159 components vs 252 particles).
     if len(sub):
-        lab_si = label(si_part)
+        if si_labels is None:
+            lab_si = label(si_part)
+            f["contact_population"] = "connected_components_FALLBACK"
+        else:
+            lab_si = si_labels
+            f["contact_population"] = "watershed_particles"
         enclosed = 0
-        coverages = []
+        coverages, areas = [], []
         for r in regionprops(lab_si):
             isb = si_boundary[r.coords[:, 0], r.coords[:, 1]]
             nb = int(isb.sum())
@@ -228,10 +247,27 @@ def extract_markers(im: BSEImage, seg: np.ndarray,
                                          r.coords[:, 1]]).sum() / nb) \
                 if nb else 0.0
             coverages.append(cov)
+            areas.append(float(r.area))
             if cov == 0.0:
                 enclosed += 1
         coverages = np.asarray(coverages)
-        f["si_enclosed_share"] = enclosed / len(sub)
+        areas = np.asarray(areas)
+        n_pop = len(coverages)
+        f["si_enclosed_share"] = enclosed / n_pop if n_pop else np.nan
+        # contacted-particle NUMBER fraction (share of particles that
+        # touch a resolved pore — NOT wetting/activity)
+        f["si_contact_num_frac"] = 1.0 - f["si_enclosed_share"] \
+            if np.isfinite(f["si_enclosed_share"]) else np.nan
+        # area-weighted fraction of contacted particles (share of Si
+        # AREA whose particle touches a pore)
+        contacted = coverages > 0
+        f["si_contact_area_frac"] = float(
+            (areas * contacted).sum() / areas.sum()) \
+            if contacted.any() and areas.sum() else 0.0
+        # particle area lying within the contact band itself
+        f["si_area_near_pore_frac"] = float(
+            (si_part & near_pore).sum() / si_part.sum()) \
+            if si_part.any() else np.nan
         f["si_coverage_mean"] = float(coverages.mean())
         f["si_coverage_p10"] = float(np.percentile(coverages, 10))
         f["si_lowcoverage_share"] = float(
@@ -239,8 +275,15 @@ def extract_markers(im: BSEImage, seg: np.ndarray,
     else:
         f["si_enclosed_share"] = f["si_coverage_mean"] = np.nan
         f["si_coverage_p10"] = f["si_lowcoverage_share"] = np.nan
-    f["si_accessible_frac"] = 1.0 - f["si_enclosed_share"] \
-        if np.isfinite(f["si_enclosed_share"]) else np.nan
+        f["si_contact_num_frac"] = f["si_contact_area_frac"] = np.nan
+        f["si_area_near_pore_frac"] = np.nan
+        f["contact_population"] = "no_particles"
+    # accessible share feeds si_act_lo (an AREA/volume fraction in the
+    # DFN), so it uses the area-weighted contacted share — the
+    # self-consistent basis. The count version is si_contact_num_frac.
+    # NEITHER means electrochemically active, wetted or connected —
+    # it is a resolved-pore-contact structural proxy (swept, bracketed).
+    f["si_accessible_frac"] = f["si_contact_area_frac"]
 
     # ---------------- C. graphite matrix ----------------------------------
     A_um2 = n * um * um
@@ -314,7 +357,7 @@ def extract_markers(im: BSEImage, seg: np.ndarray,
     # Largest connected pore region (direct label; the FDM diffusion solve
     # was removed — no 2-D section ever has a spanning pore path, so tau
     # always returned inf. See Limitations / archive/ARCHIVE.md.)
-    lab_p, _ = label(pore)
+    lab_p = label(pore)
     sizes = np.bincount(lab_p.ravel()); sizes[0] = 0
     f["pore_largest_region_frac"] = (float(sizes.max() / pore.sum())
                                      if pore.sum() else np.nan)
@@ -355,7 +398,7 @@ def extract_markers(im: BSEImage, seg: np.ndarray,
     f["has_inlens"] = int("Inlens" in im.channels)
     f["has_etd_or_se"] = int(bool(set(im.channels) & {"ETD", "SE"}))
 
-    # ---------------- uncertainty (tile jackknife) -------------------------
-    f["pore_frac_tile_err"] = _tile_jackknife(pore, config.TILE_GRID)
-    f["si_frac_tile_err"] = _tile_jackknife(si_part, config.TILE_GRID)
+    # ------------ spatial-spread diagnostic (tile SE, NOT jackknife) --
+    f["pore_frac_tile_err"] = _tile_se(pore, config.TILE_GRID)
+    f["si_frac_tile_err"] = _tile_se(si_part, config.TILE_GRID)
     return f

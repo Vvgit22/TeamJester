@@ -1,0 +1,13 @@
+protocol,model,true_batch,Batch_1,Batch_2,Batch_3,ABSTAIN
+leave_one_group_out,envelope_rule,Batch_1,2,0,2,3
+leave_one_group_out,envelope_rule,Batch_2,3,0,3,1
+leave_one_group_out,envelope_rule,Batch_3,3,2,12,0
+leave_one_group_out,majority_baseline,Batch_1,0,0,7,0
+leave_one_group_out,majority_baseline,Batch_2,0,0,7,0
+leave_one_group_out,majority_baseline,Batch_3,0,0,17,0
+leave_one_image_out,envelope_rule,Batch_1,2,0,2,3
+leave_one_image_out,envelope_rule,Batch_2,2,0,4,1
+leave_one_image_out,envelope_rule,Batch_3,1,2,14,0
+leave_one_image_out,majority_baseline,Batch_1,0,0,7,0
+leave_one_image_out,majority_baseline,Batch_2,0,0,7,0
+leave_one_image_out,majority_baseline,Batch_3,0,0,17,0

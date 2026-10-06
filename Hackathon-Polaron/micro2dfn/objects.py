@@ -22,8 +22,13 @@ from .io import BSEImage
 from .segment import split_si
 
 
-def extract_objects(im: BSEImage, si_mask: np.ndarray) -> pd.DataFrame:
-    """One row per watershed-split bright object."""
+def extract_objects(im: BSEImage, si_mask: np.ndarray,
+                    return_labels: bool = False):
+    """One row per watershed-split bright object.
+
+    return_labels=True also returns the watershed label image so
+    callers (particle_mask) can reuse it instead of recomputing
+    split_si — identical labels, half the work."""
     lab = split_si(si_mask)
     border = np.zeros(si_mask.shape, bool)
     border[[0, -1], :] = True
@@ -33,8 +38,14 @@ def extract_objects(im: BSEImage, si_mask: np.ndarray) -> pd.DataFrame:
         if r.area < config.MIN_BRIGHT_PX:
             continue
         coords = r.coords
-        eroded = binary_erosion(lab == r.label,
-                                iterations=config.OBJECT_ERODE_PX)
+        # erode inside the object bbox only — identical result to a
+        # full-image erosion (lab==label is False outside the bbox)
+        # at a fraction of the cost (vcompare does the same)
+        sl = r.slice
+        eroded_loc = binary_erosion(lab[sl] == r.label,
+                                    iterations=config.OBJECT_ERODE_PX)
+        eroded = np.zeros(lab.shape, bool)
+        eroded[sl] = eroded_loc
         interior = im.gray[eroded] if eroded.any() else im.gray[
             tuple(coords.T)]
         eq_diam = np.sqrt(4 * r.area / np.pi) * im.pixel_um
@@ -53,7 +64,8 @@ def extract_objects(im: BSEImage, si_mask: np.ndarray) -> pd.DataFrame:
             "centroid_y_um": float(r.centroid[0] * im.pixel_um),
             "centroid_x_um": float(r.centroid[1] * im.pixel_um),
         })
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    return (df, lab) if return_labels else df
 
 
 def calibrate_t_core(objects: pd.DataFrame) -> float:
@@ -81,13 +93,32 @@ def classify_objects(objects: pd.DataFrame, t_core: float
 
 
 def particle_mask(im: BSEImage, si_mask: np.ndarray,
-                  objects: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
-    """Rebuild (si_particle_mask, bright_fine_mask) from classified objects."""
-    lab = split_si(si_mask)
+                  objects: pd.DataFrame,
+                  lab: np.ndarray | None = None
+                  ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Rebuild (si_particle_mask, bright_fine_mask, watershed labels).
+
+    The third return is the integer watershed label image restricted to
+    classified si_particle objects — the SAME label ids as the objects
+    table, so per-particle measurements keep exact object identity
+    (label(si_part) connected components would merge touching
+    watershed particles and corrupt every per-particle count).
+
+    Pass `lab` (from extract_objects(..., return_labels=True)) to avoid
+    recomputing the watershed; without it split_si is re-run —
+    deterministic, same labels, just slower.
+    """
+    if lab is None:
+        lab = split_si(si_mask)
     part = np.zeros(si_mask.shape, bool)
     fine = np.zeros(si_mask.shape, bool)
+    lab_part = np.zeros(si_mask.shape, np.int32)
     sub = objects[objects["image_id"] == im.image_id]
     for _, row in sub.iterrows():
         m = lab == int(row["label"])
-        (part if row["kind"] == "si_particle" else fine)[m] = True
-    return part, fine
+        if row["kind"] == "si_particle":
+            part[m] = True
+            lab_part[m] = int(row["label"])
+        else:
+            fine[m] = True
+    return part, fine, lab_part

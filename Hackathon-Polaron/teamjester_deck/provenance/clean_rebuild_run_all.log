@@ -1,0 +1,95 @@
+[14:46:49] 31 locations
+[14:47:00] segmented Batch_1/4ih2ggld pore=0.113 si=0.169 multiotsu_fallback
+[14:47:13] segmented Batch_1/5n1q8atc pore=0.082 si=0.184 multiotsu_fallback
+[14:47:22] segmented Batch_1/f1vzngrs pore=0.080 si=0.083 multiotsu_fallback
+[14:47:31] segmented Batch_1/ffwubibz pore=0.094 si=0.049 multiotsu_fallback
+[14:47:41] segmented Batch_1/fzrt2k6r pore=0.106 si=0.068 multiotsu_fallback
+[14:47:48] segmented Batch_1/iv6g2oq0 pore=0.112 si=0.061 multiotsu_fallback
+[14:47:57] segmented Batch_1/uhdslk0o pore=0.104 si=0.065 multiotsu_fallback
+[14:48:06] segmented Batch_2/3806gxp0 pore=0.121 si=0.061 multiotsu_fallback
+[14:48:15] segmented Batch_2/avn74qx1 pore=0.113 si=0.045 multiotsu_fallback
+[14:48:25] segmented Batch_2/b3esycq1 pore=0.108 si=0.088 multiotsu_fallback
+[14:48:35] segmented Batch_2/epqdaau9 pore=0.094 si=0.068 multiotsu_fallback
+[14:48:45] segmented Batch_2/i9jiqjwl pore=0.101 si=0.074 multiotsu_fallback
+[14:48:55] segmented Batch_2/r17byphk pore=0.125 si=0.054 multiotsu_fallback
+[14:49:04] segmented Batch_2/rxax5ozo pore=0.100 si=0.058 multiotsu_fallback
+[14:49:12] segmented Batch_3/0grcilhi pore=0.151 si=0.065 multiotsu_fallback
+[14:49:22] segmented Batch_3/71vgq3fw pore=0.094 si=0.073 multiotsu_fallback
+[14:49:31] segmented Batch_3/9luzk4jm pore=0.150 si=0.061 multiotsu_fallback
+[14:49:40] segmented Batch_3/cfe5vt7s pore=0.108 si=0.070 multiotsu_fallback
+[14:49:49] segmented Batch_3/hawkfj64 pore=0.105 si=0.049 multiotsu_fallback
+[14:49:58] segmented Batch_3/hzumfsms pore=0.164 si=0.050 multiotsu_fallback
+[14:50:08] segmented Batch_3/kbdh4tri pore=0.094 si=0.089 multiotsu_fallback
+[14:50:16] segmented Batch_3/mgxahqnk pore=0.108 si=0.070 multiotsu_fallback
+[14:50:26] segmented Batch_3/pl8uabbv pore=0.117 si=0.060 multiotsu_fallback
+[14:50:33] segmented Batch_3/ptg8lmto pore=0.093 si=0.056 multiotsu_fallback
+[14:50:43] segmented Batch_3/tuy3zymq pore=0.099 si=0.093 multiotsu_fallback
+[14:50:52] segmented Batch_3/ufdvpb81 pore=0.129 si=0.057 multiotsu_fallback
+[14:51:01] segmented Batch_3/utfgcjfa pore=0.111 si=0.059 multiotsu_fallback
+[14:51:10] segmented Batch_3/vc2whyaq pore=0.110 si=0.060 multiotsu_fallback
+[14:51:20] segmented Batch_3/x77cy643 pore=0.110 si=0.065 multiotsu_fallback
+[14:51:29] segmented Batch_3/x7u69zsw pore=0.092 si=0.097 multiotsu_fallback
+[14:51:36] segmented Batch_3/xgj4xftb pore=0.107 si=0.060 multiotsu_fallback
+[14:51:36] segmentation done
+[14:52:10] checks Batch_1/4ih2ggld
+[14:52:43] checks Batch_1/5n1q8atc
+[14:53:09] checks Batch_1/f1vzngrs
+[14:53:33] checks Batch_1/ffwubibz
+[14:54:00] checks Batch_1/fzrt2k6r
+[14:54:21] checks Batch_1/iv6g2oq0
+[14:54:44] checks Batch_1/uhdslk0o
+[14:55:10] checks Batch_2/3806gxp0
+[14:55:35] checks Batch_2/avn74qx1
+[14:56:03] checks Batch_2/b3esycq1
+[14:56:38] checks Batch_2/epqdaau9
+[14:57:11] checks Batch_2/i9jiqjwl
+[14:57:40] checks Batch_2/r17byphk
+[14:58:08] checks Batch_2/rxax5ozo
+[14:58:36] checks Batch_3/0grcilhi
+[14:59:05] checks Batch_3/71vgq3fw
+[14:59:37] checks Batch_3/9luzk4jm
+[15:00:05] checks Batch_3/cfe5vt7s
+[15:00:31] checks Batch_3/hawkfj64
+[15:01:00] checks Batch_3/hzumfsms
+[15:01:34] checks Batch_3/kbdh4tri
+[15:02:01] checks Batch_3/mgxahqnk
+[15:02:32] checks Batch_3/pl8uabbv
+[15:02:53] checks Batch_3/ptg8lmto
+[15:03:25] checks Batch_3/tuy3zymq
+[15:03:58] checks Batch_3/ufdvpb81
+[15:04:28] checks Batch_3/utfgcjfa
+[15:04:56] checks Batch_3/vc2whyaq
+[15:05:27] checks Batch_3/x77cy643
+[15:06:04] checks Batch_3/x7u69zsw
+[15:06:27] checks Batch_3/xgj4xftb
+[15:06:27] flagged images: [['Batch_1', '4ih2ggld'], ['Batch_1', '5n1q8atc']]
+[15:07:50] overlays + contact sheets written
+[15:08:08] point-count sheet: /private/tmp/tj_clean/analysis/outputs/pointcount/point_count_validation.xlsx (300 points)
+[15:08:08] Phase 1 complete
+[15:08:08] seg done 1280s
+[15:14:11] features: 93 rows, 13692 particles, 44090 pores
+[15:14:11] feat done 1643s
+[15:14:13] kept 28, dropped 37: ['si_share_of_solid', 'si_per_mm2', 'si_d90_um', 'si_d99_um', 'si_dmax_um', 'si_d50_area_um', 'si_large_area_frac', 'si_aspect', 'si_sv', 'si_cracked_share', 'gr_chord_v_um', 'gr_sv', 'pore_thick_d90_um', 'crack_frac', 'compact_pore_frac', 'pore_chord_h_um', 'pore_chord_v_um', 'pore_anisotropy', 'pore_depth_cv', 'pore_depth_slope', 'crack_len_density', 'si_pore_dist_mean_um', 'si_no_pore_share', 'corr_len_pore_um', 'corr_len_si_um', 'lineal_path_pore_um', 'pore_patchiness_cv', 'si_patchiness_cv', 'tau_x', 'tau_y', 'pore_percolates_x', 'pore_percolates_y', 'pore_largest_cc_frac', 'elong_pore_area_frac', 'elong_pore_hfrac', 'pore_small_n_mm2', 'pore_perim_mm']
+[15:14:13] baseline: 28 features, outliers: ['0grcilhi', '9luzk4jm', 'hzumfsms', 'kbdh4tri', 'ptg8lmto', 'tuy3zymq', 'x77cy643', 'x7u69zsw']
+[15:14:13] baseline: 28 features, outliers: ['0grcilhi', '9luzk4jm', 'hzumfsms', 'kbdh4tri', 'ptg8lmto', 'tuy3zymq', 'x77cy643', 'x7u69zsw']
+[15:14:13] baseline: 28 features, outliers: ['0grcilhi', '9luzk4jm', 'hzumfsms', 'kbdh4tri', 'ptg8lmto', 'tuy3zymq', 'x77cy643', 'x7u69zsw']
+[15:14:13] deltas done: 56 rows
+[15:14:13] deltas done: 130 rows
+[15:14:13] deltas done: 56 rows
+[15:14:13] deltas done: 56 rows
+[15:14:59] stats done 1691s
+[15:15:18] wrote /private/tmp/tj_clean/analysis/outputs/xlsx/segmentation_validation.xlsx
+[15:15:18] wrote /private/tmp/tj_clean/analysis/outputs/xlsx/features.xlsx
+[15:15:18] wrote /private/tmp/tj_clean/analysis/outputs/xlsx/baseline_batch3.xlsx
+[15:15:19] wrote /private/tmp/tj_clean/analysis/outputs/xlsx/deltas.xlsx
+[15:15:19] wrote /private/tmp/tj_clean/analysis/outputs/xlsx/categorisation.xlsx
+[15:15:19] workbooks written
+[15:15:23] built pdf_01_segmentation
+[15:15:24] built pdf_02_baseline
+[15:15:24] built pdf_03_deltas
+[15:15:24] built pdf_04_dfn
+[15:15:26] built pdf_05_causes
+[15:15:26] built pdf_06_categorisation
+[15:15:27] built pdf_00_summary
+[15:15:27] wrote /private/tmp/tj_clean/analysis/outputs/../NOTES.md
+[15:15:27] reports done 1718s

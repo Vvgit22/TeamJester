@@ -44,3 +44,28 @@ Method (v2): primary rule = envelope coverage — count of the 9 declared featur
 - Assignment is similarity, not provenance: batches overlap on every feature, so weak-confidence calls are expected for images near the overlap region.
 - With 7 images in Batch_1/2 and 17 in Batch_3, envelope estimates are noisy; scores carry that uncertainty.
 - The frozen recipe segments BSE only; InLens/ETD channels are recorded but not used (channel comparability not yet established).
+## Corrected labels (organizer feedback, recorded without retroactive success)
+
+Original blind predictions are preserved above. Confirmed truth:
+
+| image | predicted | truth (confirmed) | correct |
+|---|---|---|---|
+| img_3e122cbj | Batch_1 | **Batch_2** | no |
+| img_fn0mhxef | Batch_2 | **Batch_1** | no |
+| img_xrv9xvzb | Batch_3 | apparently Batch_3 (unconfirmed) | likely |
+
+**Score: 0/2 on explicitly confirmed corrections; 1/3 if xrv is
+confirmed.** The secondary median-z score would have assigned fn→B1
+(correct) — neither score is consistently right.
+
+This failure was flagged in advance: every prediction carried
+`cant_tell_session_matched` — each new image's frame-height group
+appeared in exactly one batch, so session signature and batch label were
+confounded by construction. The disclosed labels do not resolve whether
+the envelope saw material or session. These images are now unblinded
+diagnostic cases; any further method changes informed by them require a
+new untouched test set for independent validation.
+
+The submitted 76.4% / 79.6% / 97.8% scores are external-submission
+numbers (TeamJester-style distance-softmax features), not produced by
+this envelope pipeline — coverage/scores here are not accuracy claims.

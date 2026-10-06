@@ -1,0 +1,10 @@
+{
+  "committed_utc": "2026-10-04T13:15:10.365897+00:00",
+  "predictions_file": "eval6/new6_predictions.csv",
+  "predictions_md5": "55afc7271e8c69944d13a026be34bf4f",
+  "recipe": "validated_comparison/recipe.json (frozen Batch_3)",
+  "n_images": 6,
+  "blind": true,
+  "rule": "envelope coverage primary; median-z + acq-baseline secondary",
+  "note": "acq_signature baseline = nearest batch centroid on [noise_mad, sharpness_lapvar, img_p50, img_p1] with robust-z; if it agrees with envelope pick, assignment may be session recognition not material"
+}

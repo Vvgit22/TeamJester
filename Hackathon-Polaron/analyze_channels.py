@@ -84,35 +84,39 @@ def edge_density(img: np.ndarray) -> float:
 
 
 def bright_kind_masks(seg: np.ndarray, objects: pd.DataFrame | None,
-                      pixel_um: float) -> tuple[np.ndarray, np.ndarray]:
-    """Rasterize classified-Si vs uncertain(bright_fine) masks by
-    matching object centroids to labeled bright regions."""
-    from scipy.ndimage import label as ndi_label
-    from scipy.spatial import cKDTree
-    from skimage.measure import regionprops
+                      pixel_um: float
+                      ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Rasterize classified-Si vs uncertain(bright_fine) masks at exact
+    object identity.
+
+    Old path matched watershed-object centroids to UNSPLIT connected-
+    component centroids within 2 px: unmatched components were dropped
+    and one match painted a whole merged component with a single kind.
+    Median painted coverage was ~27-31% of SI_CAND area (reproduced:
+    img_hawkfj64 27.4%).
+
+    Fixed: re-run the same deterministic watershed (extract.split_bright
+    with px_params(pixel_um)) the objects table was built from, then
+    paint each object row's label id with its `kind`. Masks are disjoint
+    by construction. The third return is the DROPPED mask: SI_CAND
+    pixels in watershed objects below min_bright_px (not in the objects
+    table) — declared area accounting, not silently lost.
+    """
+    from vcompare import extract
     si_mask = np.zeros(seg.shape, bool)
     unc_mask = np.zeros(seg.shape, bool)
-    lab, n = ndi_label(seg == config.SI_CAND)
-    if objects is None or not n:
-        return si_mask, unc_mask
-    props = regionprops(lab)
-    cent = np.array([p.centroid for p in props])          # (row, col) px
-    lids = np.array([p.label for p in props])
-    sub = objects.dropna(subset=["centroid_y_um",
-                                 "centroid_x_um"])
-    if not len(sub):
-        return si_mask, unc_mask
-    qc = np.c_[sub.centroid_y_um / pixel_um,
-               sub.centroid_x_um / pixel_um]
-    dist, idx = cKDTree(cent).query(qc)
-    ok = dist < 2.0                                       # 2 px tolerance
-    for i, kind in zip(idx[ok], sub.kind.values[ok]):
-        m = lab == lids[i]
-        if kind == "si_particle":
-            si_mask |= m
-        else:
-            unc_mask |= m
-    return si_mask, unc_mask
+    si_cand = seg == config.SI_CAND
+    if objects is None or not si_cand.any():
+        return si_mask, unc_mask, si_cand.copy()
+    lab = extract.split_bright(si_cand, extract.px_params(pixel_um))
+    sub = objects.dropna(subset=["label"])
+    kind_map = dict(zip(sub.label.astype(int), sub.kind))
+    lids = np.unique(lab)[1:]
+    kinds = np.array([kind_map.get(int(l), "") for l in lids])
+    si_mask = np.isin(lab, lids[kinds == "si_particle"])
+    unc_mask = np.isin(lab, lids[kinds == "bright_fine"])
+    dropped = si_cand & ~(si_mask | unc_mask)
+    return si_mask, unc_mask, dropped
 
 
 def features(bse_path: str, batch: str, seg: np.ndarray,
@@ -129,8 +133,14 @@ def features(bse_path: str, batch: str, seg: np.ndarray,
         return f
 
     pore = seg == config.PORE
-    si, unc = bright_kind_masks(seg, objects, pixel_um)
+    si, unc, dropped = bright_kind_masks(seg, objects, pixel_um)
+    bright_px = int((seg == config.SI_CAND).sum())
     f["si_px"] = int(si.sum()); f["unc_px"] = int(unc.sum())
+    f["bright_px"] = bright_px
+    f["dropped_px"] = int(dropped.sum())
+    f["mask_coverage"] = float((si.sum() + unc.sum()) / bright_px) \
+        if bright_px else np.nan
+    assert not (si & unc).any()           # disjoint by construction
     bulk = seg == config.BULK
 
     # 1. pore confirmation — secondary-electron darkness inside pores
@@ -246,14 +256,21 @@ def write_report(df: pd.DataFrame,
                  out_md="channel_report.md") -> None:
     keep = [c for c in df.columns
             if c not in ("image_id", "batch", "si_px", "unc_px",
+                         "bright_px", "dropped_px",
                          "has_inlens", "has_etd", "reg_dy_px",
                          "reg_dx_px")]
     med = df.groupby("batch")[keep].median()
-    L = ["# Multi-detector channel analysis (InLens + ETD)\n",
-         "Exploratory layer — NOT part of the frozen QC recipe. BSE is "
-         "atomic-number contrast; InLens/ETD are secondary-electron "
-         "(surface-sensitive) channels. Registration verified (0 px "
-         "phase-correlation shift on every image).\n",
+    L = ["# Multi-detector channel analysis (InLens + ETD) — EXPLORATORY\n",
+         "Not part of the frozen QC recipe. BSE is atomic-number "
+         "contrast; InLens/ETD are secondary-electron (surface-"
+         "sensitive) channels. Registration verified (0 px phase-"
+         "correlation shift on every image).\n",
+         "**Session caveat (primary):** InLens gain differs by batch, "
+         "so every channel feature inherits the acquisition confound. "
+         "Masks are now rasterized at exact watershed identity "
+         "(mask_coverage ~0.92-0.95; was ~27-31% under centroid "
+         "matching). These are exploratory follow-up signals, not "
+         "batch markers.\n",
          "## Batch medians\n",
          "| feature | " + " | ".join(med.index) + " |",
          "|---|" + "---|" * len(med.index)]
@@ -261,24 +278,23 @@ def write_report(df: pd.DataFrame,
         L.append("| " + c + " | " + " | ".join(
             f"{v:.3f}" for v in med[c].values) + " |")
     L += ["", "## What the channels say\n",
-          "1. **Pores are real voids, and Batch_1's are darker/deeper** "
-          "— `inl_pore_darkness` (InLens pore/bulk brightness) = 0.50 in "
-          "Batch_1 vs 0.66/0.69 in Batches 2/3; exact-permutation "
-          "p=0.0004 vs the reference. Beyond having MORE pores, "
-          "Batch_1's pores are more open to the surface. ETD shows no "
-          "batch trend — either an InLens-specific surface signal or an "
-          "acquisition-gain difference; flagged as a caveat, not hidden.",
+          "1. **InLens pore-contrast — possible, n=3.** Batch_1's pores "
+          "read darkest in InLens in the sessions it shares with "
+          "another batch (`inl_pore_darkness` ~0.50 vs ~0.66-0.69). "
+          "A candidate follow-up signal only: InLens gain is batch-"
+          "correlated, ETD shows no batch trend, and this is NOT a "
+          "measured pore depth or 'more open voids'.",
           "2. **Uncertain-bright material is bright material, not bulk "
-          "misread** — in both surface channels it sits at or ABOVE "
-          "classified-Si brightness (`inl_unc_si_like` 1.25–2.25), with "
-          "much higher local texture (`inl_std_unc` up 2x on Si). "
+          "misread** — in surface channels it sits at or above "
+          "classified-Si brightness, with ~2x the local texture. "
           "Consistent with thin/edge-rich bright material rather than "
-          "solid grains — supports keeping it as a separate uncertain "
-          "label, and supports the all-bright upper bracket.",
-          "3. Channel features with batch separation (uncorrected "
-          "permutation): inl_pore_darkness (0.0004), etd_unc_si_like "
-          "(0.006/0.004), inl_std_unc (0.023). Multiple-testing caveat "
-          "applies — treat inl_pore_darkness as the robust one.\n",
+          "solid grains. Validates the separate uncertain label; does "
+          "NOT establish silicon identity (edges/topography also read "
+          "bright) — the all-bright upper bracket stays a bracket.",
+          "3. **Removed:** the FFT 'vertical texture'/curtaining test "
+          "measured frame aspect ratio, not texture (see "
+          "archive/ARCHIVE.md; replaced by the validated S-parameter "
+          "analysis in orientation_analysis/).\n",
           "## What the channels still cannot do\n",
           "- chemical identity (still needs EDS)\n",
           "- absolute calibration across sessions without acquisition "

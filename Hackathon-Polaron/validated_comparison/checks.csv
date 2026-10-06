@@ -1,0 +1,11 @@
+check,passed,detail
+frozen_recipe_deterministic,True,refit produced identical thresholds
+physical_scale_consistency,True,25nm:150px 50nm:37px
+class_areas_sum_to_one,True,max |sum-1| = 1.11e-16
+si_plus_uncertain_eq_raw_bright,True,max err 1.39e-17
+missing_not_passed,True,0 images with incomplete diagnostics
+ci_statistic_matches,True,all rows carry median_diff + bootstrap CI on the same statistic
+exact_perm_feasible,True,all pair sizes enumerable
+false_alarm_text_matches_counts,True,START_HERE says 1/17
+mdd_reported,True,"24 non-significant rows, all with MDD"
+noise_adj_reference_only,True,fitted_on=Batch_3

@@ -1,0 +1,13 @@
+{
+  "repo": "/Users/raduvadanici/Downloads/teamjester_main_7f0048e",
+  "head": "7f0048ed46715ca63223f5d5be98b50f406ba490",
+  "head_date": "2026-10-04T13:18:57Z",
+  "status_clean": true,
+  "python": "3.10.11",
+  "numpy": "2.2.6",
+  "scipy": "1.14.1",
+  "skimage": "0.25.2",
+  "pandas": "2.3.3",
+  "sklearn": "1.7.2",
+  "tifffile": "2025.5.10"
+}

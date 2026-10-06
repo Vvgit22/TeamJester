@@ -1,0 +1,33 @@
+{
+ "created_utc": "2026-10-04T13:13:42Z",
+ "baseline_batch": "Batch_3",
+ "downsample": 1,
+ "fast": false,
+ "recipe_path": "dfn_output/recipe.json",
+ "recipe_md5": "039b0b88a61125c753cacae86197e830",
+ "recipe_fitted_on": "Batch_3",
+ "code_md5": {
+  "__init__.py": "7664e48c56521b57c95dec2e6a9b97c0",
+  "config.py": "bed89bb9bda979d39892a502cd1d111b",
+  "dfn_inputs.py": "748184803fa35900c767e23c9910f8fa",
+  "io.py": "3322497b1c17688c123b289596189b46",
+  "marker_cards.py": "016c6bbdb4ca0812295314b0542cbe4b",
+  "markers.py": "2f647a4a9694b2e69fabb6e635f26f11",
+  "objects.py": "9ae7349993d21261ff9a47b038923a8e",
+  "orientation.py": "1f3eaab9cf0b2e0033f8855e745c56fa",
+  "report.py": "c0a6933b09971b8a6c20d4d5bd6ec9d6",
+  "segment.py": "e57243ee110898a16b6f87c7fc74ab0d",
+  "simulate.py": "4c06e88965a68cf3d3b49cf9181c2dc0",
+  "run_dfn.py": "7d33d5836dc589b3e72f1b148bbbe03e"
+ },
+ "images": {
+  "Batch_eval": {
+   "img_0eryguqq": "ac8b26612f52b094cdc7c5c41075701b",
+   "img_4hq27w4c": "fddbc1eb89fa6229344779651893d901",
+   "img_fhwrjtet": "4e1a8c0d7ef4dc8db6a232c234ce4091",
+   "img_fspqbkxl": "0149735de8e6fec7d390b85f652d270b",
+   "img_soo2ax3r": "b90a07777b4d4788b515d3204bc9a2b9",
+   "img_y59rxmxl": "f6e9a9600fe43938b2383d80a094ed5c"
+  }
+ }
+}

@@ -1,0 +1,3827 @@
+{
+ "sha": {
+  "value": "7f0048ed46715ca63223f5d5be98b50f406ba490",
+  "text": "7f0048ed46715ca63223f5d5be98b50f406ba490",
+  "source": "git rev-parse HEAD",
+  "how": "pinned worktree"
+ },
+ "sha7": {
+  "value": "7f0048e",
+  "text": "7f0048e",
+  "source": "git rev-parse HEAD",
+  "how": "short SHA"
+ },
+ "commit_date": {
+  "value": "2026-10-04",
+  "text": "2026-10-04",
+  "source": "git log -1",
+  "how": "commit date (UTC)"
+ },
+ "repo_url": {
+  "value": "https://github.com/Augustin-Briens/TeamJester",
+  "text": "github.com/Augustin-Briens/TeamJester",
+  "source": "git remote -v",
+  "how": "origin"
+ },
+ "n_Batch_1": {
+  "value": 7,
+  "text": "7",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "count of subset=='full' rows per batch"
+ },
+ "n_Batch_2": {
+  "value": 7,
+  "text": "7",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "count of subset=='full' rows per batch"
+ },
+ "n_Batch_3": {
+  "value": 17,
+  "text": "17",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "count of subset=='full' rows per batch"
+ },
+ "n_images": {
+  "value": 31,
+  "text": "31",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "subset=='full' rows"
+ },
+ "n_tif": {
+  "value": 93,
+  "text": "93",
+  "source": "Hackathon-Polaron/Batch_*/*.tif",
+  "how": "file count"
+ },
+ "n_inlens": {
+  "value": 31,
+  "text": "31",
+  "source": "Hackathon-Polaron/Batch_*/*_Inlens.tif",
+  "how": "file count"
+ },
+ "n_etd": {
+  "value": 27,
+  "text": "27",
+  "source": "Hackathon-Polaron/Batch_*/*_ETD.tif",
+  "how": "file count"
+ },
+ "n_se": {
+  "value": 4,
+  "text": "4",
+  "source": "Hackathon-Polaron/Batch_*/*_SE.tif",
+  "how": "file count"
+ },
+ "nm_per_px": {
+  "value": 25.000144882729398,
+  "text": "25 nm",
+  "source": "analysis/outputs/tables/segment_info.csv",
+  "how": "median um_per_px x 1000 (range 0.024999-0.025001 um)"
+ },
+ "fov_w_um": {
+  "value": 175.0,
+  "text": "175 \u03bcm",
+  "source": "BSE TIFF headers",
+  "how": "max frame width (px) x 25 nm"
+ },
+ "fov_h_um": {
+  "value": [
+   40.300000000000004,
+   57.900000000000006
+  ],
+  "text": "40\u201358 \u03bcm",
+  "source": "BSE TIFF headers",
+  "how": "frame heights (px) x 25 nm"
+ },
+ "frame_heights_px": {
+  "value": [
+   1612,
+   2316
+  ],
+  "text": "1612\u20132316 px",
+  "source": "BSE TIFF headers",
+  "how": "min/max frame height"
+ },
+ "n_bright_fallback": {
+  "value": 31,
+  "text": "31",
+  "source": "analysis/outputs/tables/segment_info.csv",
+  "how": "images whose bright cut = upper multi-Otsu (valley not found)"
+ },
+ "n_flagged": {
+  "value": 2,
+  "text": "2",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "flagged == True"
+ },
+ "flagged_ids": {
+  "value": [
+   "4ih2ggld",
+   "5n1q8atc"
+  ],
+  "text": "4ih2ggld, 5n1q8atc",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "flagged image ids (both Batch_1)"
+ },
+ "flagged_contrast": {
+  "value": [
+   2.15,
+   2.27
+  ],
+  "text": "2.15 and 2.27",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "si_bulk_contrast of flagged images"
+ },
+ "min_unflagged_contrast": {
+  "value": 3.4031612873077397,
+  "text": "3.40",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "min si_bulk_contrast, unflagged"
+ },
+ "guard_contrast": {
+  "value": 2.8,
+  "text": "2.8",
+  "source": "analysis/segment.py GUARDS",
+  "how": "si_bulk_contrast guard"
+ },
+ "n_B3_lower_noise": {
+  "value": 12,
+  "text": "12",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "Batch_3 images with noise_mad below every Batch_1/2 image"
+ },
+ "noise_levels": {
+  "value": {
+   "Batch_1": [
+    10.38,
+    11.86
+   ],
+   "Batch_2": [
+    10.38
+   ],
+   "Batch_3": [
+    7.41,
+    8.9,
+    10.38
+   ]
+  },
+  "text": "",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "distinct noise_mad values per batch (quantised MAD x 1.4826)"
+ },
+ "r_texture_noise": {
+  "value": 0.9137264120017783,
+  "text": "0.91",
+  "source": "analysis/outputs/tables/features.csv + quality_guards.csv",
+  "how": "Pearson r(bse_bulk_texture, noise_mad), 31 images"
+ },
+ "r_noise_pore_frac": {
+  "value": -0.290854350944731,
+  "text": "-0.29",
+  "source": "analysis/outputs/tables/features.csv + quality_guards.csv",
+  "how": "Pearson r(pore_frac, noise_mad), 31 images"
+ },
+ "r_noise_silicon_frac": {
+  "value": 0.29727724562275176,
+  "text": "0.30",
+  "source": "analysis/outputs/tables/features.csv + quality_guards.csv",
+  "how": "Pearson r(silicon_frac, noise_mad), 31 images"
+ },
+ "r_noise_pores_per_mm2": {
+  "value": 0.16709418216250574,
+  "text": "0.17",
+  "source": "analysis/outputs/tables/features.csv + quality_guards.csv",
+  "how": "Pearson r(pores_per_mm2, noise_mad), 31 images"
+ },
+ "r_noise_etd_roughness": {
+  "value": 0.8799956669566803,
+  "text": "0.88",
+  "source": "analysis/outputs/tables/features.csv + quality_guards.csv",
+  "how": "Pearson r(etd_roughness, noise_mad), 31 images"
+ },
+ "r_noise_inlens_edge_density": {
+  "value": 0.8895320364904709,
+  "text": "0.89",
+  "source": "analysis/outputs/tables/features.csv + quality_guards.csv",
+  "how": "Pearson r(inlens_edge_density, noise_mad), 31 images"
+ },
+ "n_features": {
+  "value": 53,
+  "text": "53",
+  "source": "analysis/outputs/tables/feature_meta.csv",
+  "how": "rows (features computed)"
+ },
+ "n_kept": {
+  "value": 20,
+  "text": "20",
+  "source": "analysis/outputs/tables/baseline_stats.csv",
+  "how": "rows (features kept after repeatability/duplicate pruning)"
+ },
+ "lr_pore_frac": {
+  "value": 0.8721170794331041,
+  "text": "0.87",
+  "source": "analysis/outputs/tables/repeatability.csv",
+  "how": "left/right-half Pearson r (lr_corr)"
+ },
+ "lr_silicon_frac": {
+  "value": 0.7413400116522914,
+  "text": "0.74",
+  "source": "analysis/outputs/tables/repeatability.csv",
+  "how": "left/right-half Pearson r (lr_corr)"
+ },
+ "lr_si_d50_um": {
+  "value": 0.6995031960628365,
+  "text": "0.70",
+  "source": "analysis/outputs/tables/repeatability.csv",
+  "how": "left/right-half Pearson r (lr_corr)"
+ },
+ "lr_ring_porosity_250nm": {
+  "value": 0.683996865740025,
+  "text": "0.68",
+  "source": "analysis/outputs/tables/repeatability.csv",
+  "how": "left/right-half Pearson r (lr_corr)"
+ },
+ "lr_gr_chord_ratio_hv": {
+  "value": 0.6076046842264664,
+  "text": "0.61",
+  "source": "analysis/outputs/tables/repeatability.csv",
+  "how": "left/right-half Pearson r (lr_corr)"
+ },
+ "lr_pores_per_mm2": {
+  "value": 0.6297355774184576,
+  "text": "0.63",
+  "source": "analysis/outputs/tables/repeatability.csv",
+  "how": "left/right-half Pearson r (lr_corr)"
+ },
+ "lr_pore_anisotropy": {
+  "value": 0.4778983087120547,
+  "text": "0.48",
+  "source": "analysis/outputs/tables/repeatability.csv",
+  "how": "left/right-half Pearson r (lr_corr)"
+ },
+ "sens_pore_m": {
+  "value": -0.11792457613704345,
+  "text": "-12%",
+  "source": "analysis/outputs/tables/threshold_sensitivity.csv",
+  "how": "median relative change of pore fraction when t_lo(pore) is shifted -10%"
+ },
+ "sens_pore_p": {
+  "value": 0.1306830489910858,
+  "text": "+13%",
+  "source": "analysis/outputs/tables/threshold_sensitivity.csv",
+  "how": "median relative change of pore fraction when t_lo(pore) is shifted +10%"
+ },
+ "sens_si_m": {
+  "value": 0.23111478936283944,
+  "text": "+23%",
+  "source": "analysis/outputs/tables/threshold_sensitivity.csv",
+  "how": "median relative change of silicon fraction when t_b(silicon) is shifted -10%"
+ },
+ "sens_si_p": {
+  "value": -0.09755123810474314,
+  "text": "-10%",
+  "source": "analysis/outputs/tables/threshold_sensitivity.csv",
+  "how": "median relative change of silicon fraction when t_b(silicon) is shifted +10%"
+ },
+ "pc_points": {
+  "value": 300,
+  "text": "300",
+  "source": "analysis/outputs/pointcount/point_count_validation.xlsx",
+  "how": "rows"
+ },
+ "pc_human": {
+  "value": 0,
+  "text": "0",
+  "source": "analysis/outputs/pointcount/point_count_validation.xlsx",
+  "how": "rows with a human_class label"
+ },
+ "iou_inlens": {
+  "value": 0.15111560245119138,
+  "text": "0.15",
+  "source": "analysis/outputs/tables/cross_detector.csv",
+  "how": "mean IoU Inlens-only vs BSE pore mask"
+ },
+ "mean_pore_frac_Batch_1": {
+  "value": 0.09871259817020532,
+  "text": "0.09871",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pore_frac, Batch_1, all images"
+ },
+ "med_pore_frac_Batch_1": {
+  "value": 0.1044061765662571,
+  "text": "0.1044",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of pore_frac, Batch_1, all images"
+ },
+ "mean_pore_frac_Batch_2": {
+  "value": 0.10873101765390045,
+  "text": "0.1087",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pore_frac, Batch_2, all images"
+ },
+ "med_pore_frac_Batch_2": {
+  "value": 0.1078684733633713,
+  "text": "0.1079",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of pore_frac, Batch_2, all images"
+ },
+ "mean_pore_frac_Batch_3": {
+  "value": 0.11424679286790891,
+  "text": "0.1142",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pore_frac, Batch_3, all images"
+ },
+ "med_pore_frac_Batch_3": {
+  "value": 0.1079670618247299,
+  "text": "0.108",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of pore_frac, Batch_3, all images"
+ },
+ "mean_nf_pore_frac_Batch_1": {
+  "value": 0.0991998245539168,
+  "text": "0.0992",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pore_frac, Batch_1, unflagged images"
+ },
+ "mean_nf_pore_frac_Batch_2": {
+  "value": 0.10873101765390045,
+  "text": "0.1087",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pore_frac, Batch_2, unflagged images"
+ },
+ "mean_nf_pore_frac_Batch_3": {
+  "value": 0.11424679286790891,
+  "text": "0.1142",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pore_frac, Batch_3, unflagged images"
+ },
+ "mean_silicon_frac_Batch_1": {
+  "value": 0.09690108861184828,
+  "text": "0.0969",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of silicon_frac, Batch_1, all images"
+ },
+ "med_silicon_frac_Batch_1": {
+  "value": 0.0683683278710429,
+  "text": "0.06837",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of silicon_frac, Batch_1, all images"
+ },
+ "mean_silicon_frac_Batch_2": {
+  "value": 0.06371855720477455,
+  "text": "0.06372",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of silicon_frac, Batch_2, all images"
+ },
+ "med_silicon_frac_Batch_2": {
+  "value": 0.0605223911830357,
+  "text": "0.06052",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of silicon_frac, Batch_2, all images"
+ },
+ "mean_silicon_frac_Batch_3": {
+  "value": 0.06675990238455218,
+  "text": "0.06676",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of silicon_frac, Batch_3, all images"
+ },
+ "med_silicon_frac_Batch_3": {
+  "value": 0.0611048166392994,
+  "text": "0.0611",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of silicon_frac, Batch_3, all images"
+ },
+ "mean_nf_silicon_frac_Batch_1": {
+  "value": 0.06514492286034516,
+  "text": "0.06514",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of silicon_frac, Batch_1, unflagged images"
+ },
+ "mean_nf_silicon_frac_Batch_2": {
+  "value": 0.06371855720477455,
+  "text": "0.06372",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of silicon_frac, Batch_2, unflagged images"
+ },
+ "mean_nf_silicon_frac_Batch_3": {
+  "value": 0.06675990238455218,
+  "text": "0.06676",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of silicon_frac, Batch_3, unflagged images"
+ },
+ "mean_si_d50_um_Batch_1": {
+  "value": 0.6522382797581064,
+  "text": "0.6522",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of si_d50_um, Batch_1, all images"
+ },
+ "med_si_d50_um_Batch_1": {
+  "value": 0.6364310375609568,
+  "text": "0.6364",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of si_d50_um, Batch_1, all images"
+ },
+ "mean_si_d50_um_Batch_2": {
+  "value": 0.6748100465049477,
+  "text": "0.6748",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of si_d50_um, Batch_2, all images"
+ },
+ "med_si_d50_um_Batch_2": {
+  "value": 0.6633649868609802,
+  "text": "0.6634",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of si_d50_um, Batch_2, all images"
+ },
+ "mean_si_d50_um_Batch_3": {
+  "value": 0.7630138936430334,
+  "text": "0.763",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of si_d50_um, Batch_3, all images"
+ },
+ "med_si_d50_um_Batch_3": {
+  "value": 0.6852208893279993,
+  "text": "0.6852",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of si_d50_um, Batch_3, all images"
+ },
+ "mean_nf_si_d50_um_Batch_1": {
+  "value": 0.7041599359565722,
+  "text": "0.7042",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of si_d50_um, Batch_1, unflagged images"
+ },
+ "mean_nf_si_d50_um_Batch_2": {
+  "value": 0.6748100465049477,
+  "text": "0.6748",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of si_d50_um, Batch_2, unflagged images"
+ },
+ "mean_nf_si_d50_um_Batch_3": {
+  "value": 0.7630138936430334,
+  "text": "0.763",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of si_d50_um, Batch_3, unflagged images"
+ },
+ "mean_ring_porosity_250nm_Batch_1": {
+  "value": 0.0964644953799402,
+  "text": "0.09646",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of ring_porosity_250nm, Batch_1, all images"
+ },
+ "med_ring_porosity_250nm_Batch_1": {
+  "value": 0.0920893006616137,
+  "text": "0.09209",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of ring_porosity_250nm, Batch_1, all images"
+ },
+ "mean_ring_porosity_250nm_Batch_2": {
+  "value": 0.08150843218202901,
+  "text": "0.08151",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of ring_porosity_250nm, Batch_2, all images"
+ },
+ "med_ring_porosity_250nm_Batch_2": {
+  "value": 0.0796133031103379,
+  "text": "0.07961",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of ring_porosity_250nm, Batch_2, all images"
+ },
+ "mean_ring_porosity_250nm_Batch_3": {
+  "value": 0.08355010286968688,
+  "text": "0.08355",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of ring_porosity_250nm, Batch_3, all images"
+ },
+ "med_ring_porosity_250nm_Batch_3": {
+  "value": 0.0828932708876548,
+  "text": "0.08289",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of ring_porosity_250nm, Batch_3, all images"
+ },
+ "mean_nf_ring_porosity_250nm_Batch_1": {
+  "value": 0.08276237353263552,
+  "text": "0.08276",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of ring_porosity_250nm, Batch_1, unflagged images"
+ },
+ "mean_nf_ring_porosity_250nm_Batch_2": {
+  "value": 0.08150843218202901,
+  "text": "0.08151",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of ring_porosity_250nm, Batch_2, unflagged images"
+ },
+ "mean_nf_ring_porosity_250nm_Batch_3": {
+  "value": 0.08355010286968688,
+  "text": "0.08355",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of ring_porosity_250nm, Batch_3, unflagged images"
+ },
+ "mean_gr_chord_ratio_hv_Batch_1": {
+  "value": 1.187459651272352,
+  "text": "1.187",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_chord_ratio_hv, Batch_1, all images"
+ },
+ "med_gr_chord_ratio_hv_Batch_1": {
+  "value": 1.211876768678706,
+  "text": "1.212",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of gr_chord_ratio_hv, Batch_1, all images"
+ },
+ "mean_gr_chord_ratio_hv_Batch_2": {
+  "value": 1.1874891327891248,
+  "text": "1.187",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_chord_ratio_hv, Batch_2, all images"
+ },
+ "med_gr_chord_ratio_hv_Batch_2": {
+  "value": 1.189772781290108,
+  "text": "1.19",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of gr_chord_ratio_hv, Batch_2, all images"
+ },
+ "mean_gr_chord_ratio_hv_Batch_3": {
+  "value": 1.1996279538324088,
+  "text": "1.2",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_chord_ratio_hv, Batch_3, all images"
+ },
+ "med_gr_chord_ratio_hv_Batch_3": {
+  "value": 1.1917373896051648,
+  "text": "1.192",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of gr_chord_ratio_hv, Batch_3, all images"
+ },
+ "mean_nf_gr_chord_ratio_hv_Batch_1": {
+  "value": 1.2325728460883492,
+  "text": "1.233",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_chord_ratio_hv, Batch_1, unflagged images"
+ },
+ "mean_nf_gr_chord_ratio_hv_Batch_2": {
+  "value": 1.1874891327891248,
+  "text": "1.187",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_chord_ratio_hv, Batch_2, unflagged images"
+ },
+ "mean_nf_gr_chord_ratio_hv_Batch_3": {
+  "value": 1.1996279538324088,
+  "text": "1.2",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_chord_ratio_hv, Batch_3, unflagged images"
+ },
+ "mean_pores_per_mm2_Batch_1": {
+  "value": 171815.32196442457,
+  "text": "1.718e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pores_per_mm2, Batch_1, all images"
+ },
+ "med_pores_per_mm2_Batch_1": {
+  "value": 156520.006540691,
+  "text": "1.565e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of pores_per_mm2, Batch_1, all images"
+ },
+ "mean_pores_per_mm2_Batch_2": {
+  "value": 152820.83347292736,
+  "text": "1.528e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pores_per_mm2, Batch_2, all images"
+ },
+ "med_pores_per_mm2_Batch_2": {
+  "value": 147882.92957598102,
+  "text": "1.479e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of pores_per_mm2, Batch_2, all images"
+ },
+ "mean_pores_per_mm2_Batch_3": {
+  "value": 154974.6378085737,
+  "text": "1.55e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pores_per_mm2, Batch_3, all images"
+ },
+ "med_pores_per_mm2_Batch_3": {
+  "value": 155027.62248873294,
+  "text": "1.55e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of pores_per_mm2, Batch_3, all images"
+ },
+ "mean_nf_pores_per_mm2_Batch_1": {
+  "value": 162771.74369048394,
+  "text": "1.628e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pores_per_mm2, Batch_1, unflagged images"
+ },
+ "mean_nf_pores_per_mm2_Batch_2": {
+  "value": 152820.83347292736,
+  "text": "1.528e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pores_per_mm2, Batch_2, unflagged images"
+ },
+ "mean_nf_pores_per_mm2_Batch_3": {
+  "value": 154974.6378085737,
+  "text": "1.55e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of pores_per_mm2, Batch_3, unflagged images"
+ },
+ "mean_large_gap_frac_Batch_1": {
+  "value": 0.004252898620578957,
+  "text": "0.004253",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of large_gap_frac, Batch_1, all images"
+ },
+ "med_large_gap_frac_Batch_1": {
+  "value": 0.0052603818424665,
+  "text": "0.00526",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of large_gap_frac, Batch_1, all images"
+ },
+ "mean_large_gap_frac_Batch_2": {
+  "value": 0.006959344836489972,
+  "text": "0.006959",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of large_gap_frac, Batch_2, all images"
+ },
+ "med_large_gap_frac_Batch_2": {
+  "value": 0.0056234457032329,
+  "text": "0.005623",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of large_gap_frac, Batch_2, all images"
+ },
+ "mean_large_gap_frac_Batch_3": {
+  "value": 0.014761220988167397,
+  "text": "0.01476",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of large_gap_frac, Batch_3, all images"
+ },
+ "med_large_gap_frac_Batch_3": {
+  "value": 0.0084981992797118,
+  "text": "0.008498",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of large_gap_frac, Batch_3, all images"
+ },
+ "mean_nf_large_gap_frac_Batch_1": {
+  "value": 0.00481666991411866,
+  "text": "0.004817",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of large_gap_frac, Batch_1, unflagged images"
+ },
+ "mean_nf_large_gap_frac_Batch_2": {
+  "value": 0.006959344836489972,
+  "text": "0.006959",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of large_gap_frac, Batch_2, unflagged images"
+ },
+ "mean_nf_large_gap_frac_Batch_3": {
+  "value": 0.014761220988167397,
+  "text": "0.01476",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of large_gap_frac, Batch_3, unflagged images"
+ },
+ "mean_bse_bulk_texture_Batch_1": {
+  "value": 13.94523184640067,
+  "text": "13.95",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of bse_bulk_texture, Batch_1, all images"
+ },
+ "med_bse_bulk_texture_Batch_1": {
+  "value": 13.889559745788574,
+  "text": "13.89",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of bse_bulk_texture, Batch_1, all images"
+ },
+ "mean_bse_bulk_texture_Batch_2": {
+  "value": 13.60953153882708,
+  "text": "13.61",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of bse_bulk_texture, Batch_2, all images"
+ },
+ "med_bse_bulk_texture_Batch_2": {
+  "value": 13.612262725830078,
+  "text": "13.61",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of bse_bulk_texture, Batch_2, all images"
+ },
+ "mean_bse_bulk_texture_Batch_3": {
+  "value": 11.815763754003187,
+  "text": "11.82",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of bse_bulk_texture, Batch_3, all images"
+ },
+ "med_bse_bulk_texture_Batch_3": {
+  "value": 12.775035858154297,
+  "text": "12.78",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of bse_bulk_texture, Batch_3, all images"
+ },
+ "mean_nf_bse_bulk_texture_Batch_1": {
+  "value": 13.729842376708984,
+  "text": "13.73",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of bse_bulk_texture, Batch_1, unflagged images"
+ },
+ "mean_nf_bse_bulk_texture_Batch_2": {
+  "value": 13.60953153882708,
+  "text": "13.61",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of bse_bulk_texture, Batch_2, unflagged images"
+ },
+ "mean_nf_bse_bulk_texture_Batch_3": {
+  "value": 11.815763754003187,
+  "text": "11.82",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of bse_bulk_texture, Batch_3, unflagged images"
+ },
+ "mean_gr_st_coherence_Batch_1": {
+  "value": 0.10466827132872168,
+  "text": "0.1047",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_st_coherence, Batch_1, all images"
+ },
+ "med_gr_st_coherence_Batch_1": {
+  "value": 0.1052422821521759,
+  "text": "0.1052",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of gr_st_coherence, Batch_1, all images"
+ },
+ "mean_gr_st_coherence_Batch_2": {
+  "value": 0.09928565685238154,
+  "text": "0.09929",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_st_coherence, Batch_2, all images"
+ },
+ "med_gr_st_coherence_Batch_2": {
+  "value": 0.0990799143910408,
+  "text": "0.09908",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of gr_st_coherence, Batch_2, all images"
+ },
+ "mean_gr_st_coherence_Batch_3": {
+  "value": 0.10842795231763051,
+  "text": "0.1084",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_st_coherence, Batch_3, all images"
+ },
+ "med_gr_st_coherence_Batch_3": {
+  "value": 0.1100009977817535,
+  "text": "0.11",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "median of gr_st_coherence, Batch_3, all images"
+ },
+ "mean_nf_gr_st_coherence_Batch_1": {
+  "value": 0.10136259198188777,
+  "text": "0.1014",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_st_coherence, Batch_1, unflagged images"
+ },
+ "mean_nf_gr_st_coherence_Batch_2": {
+  "value": 0.09928565685238154,
+  "text": "0.09929",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_st_coherence, Batch_2, unflagged images"
+ },
+ "mean_nf_gr_st_coherence_Batch_3": {
+  "value": 0.10842795231763051,
+  "text": "0.1084",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of gr_st_coherence, Batch_3, unflagged images"
+ },
+ "mean_si_border_pore_Batch_1": {
+  "value": 0.041658353035237905,
+  "text": "0.04166",
+  "source": "analysis/outputs/tables/exp_newfeat.csv",
+  "how": "mean of si_border_pore, Batch_1, all images"
+ },
+ "med_si_border_pore_Batch_1": {
+  "value": 0.0212988442487616,
+  "text": "0.0213",
+  "source": "analysis/outputs/tables/exp_newfeat.csv",
+  "how": "median of si_border_pore, Batch_1, all images"
+ },
+ "mean_si_border_pore_Batch_2": {
+  "value": 0.022090737048117627,
+  "text": "0.02209",
+  "source": "analysis/outputs/tables/exp_newfeat.csv",
+  "how": "mean of si_border_pore, Batch_2, all images"
+ },
+ "med_si_border_pore_Batch_2": {
+  "value": 0.0230542272866008,
+  "text": "0.02305",
+  "source": "analysis/outputs/tables/exp_newfeat.csv",
+  "how": "median of si_border_pore, Batch_2, all images"
+ },
+ "mean_si_border_pore_Batch_3": {
+  "value": 0.01578935916386635,
+  "text": "0.01579",
+  "source": "analysis/outputs/tables/exp_newfeat.csv",
+  "how": "mean of si_border_pore, Batch_3, all images"
+ },
+ "med_si_border_pore_Batch_3": {
+  "value": 0.0148955151253007,
+  "text": "0.0149",
+  "source": "analysis/outputs/tables/exp_newfeat.csv",
+  "how": "median of si_border_pore, Batch_3, all images"
+ },
+ "mean_nf_si_border_pore_Batch_1": {
+  "value": 0.0200579767129705,
+  "text": "0.02006",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of si_border_pore, Batch_1, unflagged images"
+ },
+ "mean_nf_si_border_pore_Batch_2": {
+  "value": 0.022090737048117627,
+  "text": "0.02209",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of si_border_pore, Batch_2, unflagged images"
+ },
+ "mean_nf_si_border_pore_Batch_3": {
+  "value": 0.01578935916386635,
+  "text": "0.01579",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of si_border_pore, Batch_3, unflagged images"
+ },
+ "mean_noise_mad_Batch_1": {
+  "value": 10.801799637930737,
+  "text": "10.8",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "mean of noise_mad, Batch_1, all images"
+ },
+ "med_noise_mad_Batch_1": {
+  "value": 10.378199577331545,
+  "text": "10.38",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "median of noise_mad, Batch_1, all images"
+ },
+ "mean_noise_mad_Batch_2": {
+  "value": 10.378199577331545,
+  "text": "10.38",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "mean of noise_mad, Batch_2, all images"
+ },
+ "med_noise_mad_Batch_2": {
+  "value": 10.378199577331545,
+  "text": "10.38",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "median of noise_mad, Batch_2, all images"
+ },
+ "mean_noise_mad_Batch_3": {
+  "value": 8.721176203559427,
+  "text": "8.721",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "mean of noise_mad, Batch_3, all images"
+ },
+ "med_noise_mad_Batch_3": {
+  "value": 8.895599365234375,
+  "text": "8.896",
+  "source": "analysis/outputs/tables/quality_guards.csv",
+  "how": "median of noise_mad, Batch_3, all images"
+ },
+ "mean_nf_noise_mad_Batch_1": {
+  "value": 10.378199577331545,
+  "text": "10.38",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of noise_mad, Batch_1, unflagged images"
+ },
+ "mean_nf_noise_mad_Batch_2": {
+  "value": 10.378199577331545,
+  "text": "10.38",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of noise_mad, Batch_2, unflagged images"
+ },
+ "mean_nf_noise_mad_Batch_3": {
+  "value": 8.721176203559427,
+  "text": "8.721",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "mean of noise_mad, Batch_3, unflagged images"
+ },
+ "si_range_unflagged": {
+  "value": [
+   0.0446306085021074,
+   0.0965873072019997
+  ],
+  "text": "4.5\u20139.7%",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "min-max silicon_frac over 29 unflagged images"
+ },
+ "si_flagged_values": {
+  "value": [
+   0.1685765292972742,
+   0.1840064766839378
+  ],
+  "text": "16.9% and 18.4%",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "silicon_frac of the two flagged images"
+ },
+ "d_Batch_1_silicon_frac_pct": {
+  "value": 0.4514863735671157,
+  "text": "+45%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_silicon_frac_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_silicon_frac_pmw": {
+  "value": 0.2877805515105286,
+  "text": "0.288",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_silicon_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_silicon_frac_ci": {
+  "value": [
+   -0.00483428381891,
+   0.0690108729574998
+  ],
+  "text": "[-0.00483, 0.069]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_corr_len_gr_um_pct": {
+  "value": 0.17610218902676786,
+  "text": "+18%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_corr_len_gr_um_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_corr_len_gr_um_pmw": {
+  "value": 0.0751641357574749,
+  "text": "0.075",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_corr_len_gr_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_corr_len_gr_um_ci": {
+  "value": [
+   0.0231062051045689,
+   0.3487874682215219
+  ],
+  "text": "[0.0231, 0.349]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_etd_roughness_pct": {
+  "value": 0.18023952586760225,
+  "text": "+18%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_etd_roughness_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_etd_roughness_pmw": {
+  "value": 0.0160240852460532,
+  "text": "0.016",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_etd_roughness_pholm": {
+  "value": 0.3204817049210641,
+  "text": "0.320",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_etd_roughness_ci": {
+  "value": [
+   0.0021849429543998,
+   0.009087916545789
+  ],
+  "text": "[0.00218, 0.00909]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_pores_per_mm2_pct": {
+  "value": 0.10866735611702262,
+  "text": "+11%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_pores_per_mm2_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_pores_per_mm2_pmw": {
+  "value": 0.4180708688717842,
+  "text": "0.418",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_pores_per_mm2_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_pores_per_mm2_ci": {
+  "value": [
+   -5428.229266455292,
+   42434.76878204846
+  ],
+  "text": "[-5.43e+03, 4.24e+04]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_bse_bulk_texture_pct": {
+  "value": 0.18022263619446668,
+  "text": "+18%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_bse_bulk_texture_class": {
+  "value": "different",
+  "text": "different",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_bse_bulk_texture_pmw": {
+  "value": 0.0002600374453921,
+  "text": "0.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_bse_bulk_texture_pholm": {
+  "value": 0.0054607863532348,
+  "text": "0.005",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_bse_bulk_texture_ci": {
+  "value": [
+   1.2595856181713712,
+   3.040161062689387
+  ],
+  "text": "[1.26, 3.04]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_si_clarkevans_R_pct": {
+  "value": 0.06776402997382,
+  "text": "+7%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_si_clarkevans_R_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_si_clarkevans_R_pmw": {
+  "value": 0.0994903266070314,
+  "text": "0.099",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_si_clarkevans_R_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_si_clarkevans_R_ci": {
+  "value": [
+   -0.0009890839580275,
+   0.0950804456844989
+  ],
+  "text": "[-0.000989, 0.0951]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_inlens_bulk_texture_pct": {
+  "value": -0.2073321111605045,
+  "text": "-21%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_inlens_bulk_texture_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_inlens_bulk_texture_pmw": {
+  "value": 0.0337239673624112,
+  "text": "0.034",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_inlens_bulk_texture_pholm": {
+  "value": 0.6070314125234033,
+  "text": "0.607",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_inlens_bulk_texture_ci": {
+  "value": [
+   -15.984018752955588,
+   -5.574852808784033
+  ],
+  "text": "[-16, -5.57]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_inlens_edge_density_pct": {
+  "value": 0.1688043132472366,
+  "text": "+17%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_inlens_edge_density_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_inlens_edge_density_pmw": {
+  "value": 0.0282631810091764,
+  "text": "0.028",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_inlens_edge_density_pholm": {
+  "value": 0.5370004391743521,
+  "text": "0.537",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_inlens_edge_density_ci": {
+  "value": [
+   0.0022005797175987,
+   0.0108883084756705
+  ],
+  "text": "[0.0022, 0.0109]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_si_solidity_pct": {
+  "value": -0.01542859324755953,
+  "text": "-2%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_si_solidity_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_si_solidity_pmw": {
+  "value": 0.3492649608210249,
+  "text": "0.349",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_si_solidity_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_si_solidity_ci": {
+  "value": [
+   -0.0379492883822382,
+   0.0054858858770885
+  ],
+  "text": "[-0.0379, 0.00549]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_graphite_frac_pct": {
+  "value": -0.01783530029478737,
+  "text": "-2%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_graphite_frac_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_graphite_frac_pmw": {
+  "value": 0.6640027275038718,
+  "text": "0.664",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_graphite_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_graphite_frac_ci": {
+  "value": [
+   -0.0569049635465541,
+   0.0196855200699124
+  ],
+  "text": "[-0.0569, 0.0197]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_pore_frac_pct": {
+  "value": -0.1359705100489261,
+  "text": "-14%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_pore_frac_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_pore_frac_pmw": {
+  "value": 0.1661697062154728,
+  "text": "0.166",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_pore_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_pore_frac_ci": {
+  "value": [
+   -0.0306281715189539,
+   -0.0026150810925282
+  ],
+  "text": "[-0.0306, -0.00262]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_ring_porosity_250nm_pct": {
+  "value": 0.1545706356627221,
+  "text": "+15%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_ring_porosity_250nm_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_ring_porosity_250nm_pmw": {
+  "value": 0.3492649608210249,
+  "text": "0.349",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_ring_porosity_250nm_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_ring_porosity_250nm_ci": {
+  "value": [
+   -0.0090239361591229,
+   0.0349232364739186
+  ],
+  "text": "[-0.00902, 0.0349]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_si_d50_um_pct": {
+  "value": -0.1451816471598248,
+  "text": "-15%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_si_d50_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_si_d50_um_pmw": {
+  "value": 0.3492649608210249,
+  "text": "0.349",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_si_d50_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_si_d50_um_ci": {
+  "value": [
+   -0.2447445049755588,
+   0.0111159019702758
+  ],
+  "text": "[-0.245, 0.0111]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_large_gap_frac_pct": {
+  "value": -0.7118870705893445,
+  "text": "-71%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_large_gap_frac_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_large_gap_frac_pmw": {
+  "value": 0.1707050830851092,
+  "text": "0.171",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_large_gap_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_large_gap_frac_ci": {
+  "value": [
+   -0.0211970207069033,
+   -0.0015889207556368
+  ],
+  "text": "[-0.0212, -0.00159]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_gr_st_coherence_pct": {
+  "value": -0.03467446270584511,
+  "text": "-3%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_gr_st_coherence_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_gr_st_coherence_pmw": {
+  "value": 0.2337043200887594,
+  "text": "0.234",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_gr_st_coherence_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_gr_st_coherence_ci": {
+  "value": [
+   -0.0096990216053834,
+   0.0021089879561121
+  ],
+  "text": "[-0.0097, 0.00211]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_gr_chord_ratio_hv_pct": {
+  "value": -0.010143396976690231,
+  "text": "-1%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_gr_chord_ratio_hv_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_gr_chord_ratio_hv_pmw": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_gr_chord_ratio_hv_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_gr_chord_ratio_hv_ci": {
+  "value": [
+   -0.0792224434589226,
+   0.0489662882732276
+  ],
+  "text": "[-0.0792, 0.049]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_gr_chord_h_um_pct": {
+  "value": -0.03731133841711732,
+  "text": "-4%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_gr_chord_h_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_gr_chord_h_um_pmw": {
+  "value": 0.709751982063195,
+  "text": "0.710",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_gr_chord_h_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_gr_chord_h_um_ci": {
+  "value": [
+   -0.9190098948555282,
+   0.5764593308898109
+  ],
+  "text": "[-0.919, 0.576]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_pore_thick_d50_um_pct": {
+  "value": -0.03967063154178316,
+  "text": "-4%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_pore_thick_d50_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_pore_thick_d50_um_pmw": {
+  "value": 0.7748420076653084,
+  "text": "0.775",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_pore_thick_d50_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_pore_thick_d50_um_ci": {
+  "value": [
+   -0.0437531184595624,
+   0.0208382141905866
+  ],
+  "text": "[-0.0438, 0.0208]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_pore_thick_d10_um_pct": {
+  "value": -0.01297359324118952,
+  "text": "-1%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_pore_thick_d10_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_pore_thick_d10_um_pmw": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_pore_thick_d10_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_pore_thick_d10_um_ci": {
+  "value": [
+   -0.0061094495403606,
+   0.0064393330920398
+  ],
+  "text": "[-0.00611, 0.00644]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_1_ring_porosity_500nm_pct": {
+  "value": 0.009888706800029082,
+  "text": "+1%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_1_ring_porosity_500nm_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_1_ring_porosity_500nm_pmw": {
+  "value": 0.5761158495712273,
+  "text": "0.576",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_1_ring_porosity_500nm_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_1_ring_porosity_500nm_ci": {
+  "value": [
+   -0.0248966059350978,
+   0.0262366497024529
+  ],
+  "text": "[-0.0249, 0.0262]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_gr_st_coherence_pct": {
+  "value": -0.08431677689962631,
+  "text": "-8%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_gr_st_coherence_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_gr_st_coherence_pmw": {
+  "value": 0.0160240852460532,
+  "text": "0.016",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_gr_st_coherence_pholm": {
+  "value": 0.3204817049210641,
+  "text": "0.320",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_gr_st_coherence_ci": {
+  "value": [
+   -0.0148788927404694,
+   -0.0034106218780414
+  ],
+  "text": "[-0.0149, -0.00341]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_bse_bulk_texture_pct": {
+  "value": 0.15181141246296181,
+  "text": "+15%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_bse_bulk_texture_class": {
+  "value": "different",
+  "text": "different",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_bse_bulk_texture_pmw": {
+  "value": 0.0010459283914661,
+  "text": "0.001",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_bse_bulk_texture_pholm": {
+  "value": 0.0219644962207891,
+  "text": "0.022",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_bse_bulk_texture_ci": {
+  "value": [
+   0.9745074560662264,
+   2.6247261794675287
+  ],
+  "text": "[0.975, 2.62]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_etd_roughness_pct": {
+  "value": 0.09816899586850088,
+  "text": "+10%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_etd_roughness_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_etd_roughness_pmw": {
+  "value": 0.1471234079929732,
+  "text": "0.147",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_etd_roughness_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_etd_roughness_ci": {
+  "value": [
+   0.0010410085551346,
+   0.0050159124833602
+  ],
+  "text": "[0.00104, 0.00502]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_inlens_edge_density_pct": {
+  "value": 0.13562014541765752,
+  "text": "+14%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_inlens_edge_density_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_inlens_edge_density_pmw": {
+  "value": 0.1661697062154728,
+  "text": "0.166",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_inlens_edge_density_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_inlens_edge_density_ci": {
+  "value": [
+   0.0015979547026183,
+   0.0091831890830942
+  ],
+  "text": "[0.0016, 0.00918]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_gr_chord_h_um_pct": {
+  "value": 0.06990022130652057,
+  "text": "+7%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_gr_chord_h_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_gr_chord_h_um_pmw": {
+  "value": 0.3827635623974297,
+  "text": "0.383",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_gr_chord_h_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_gr_chord_h_um_ci": {
+  "value": [
+   -0.0576430127358143,
+   0.5833674820754989
+  ],
+  "text": "[-0.0576, 0.583]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_pore_thick_d10_um_pct": {
+  "value": -0.06812451178494516,
+  "text": "-7%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_pore_thick_d10_um_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_pore_thick_d10_um_pmw": {
+  "value": 0.291928296761336,
+  "text": "0.292",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_pore_thick_d10_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_pore_thick_d10_um_ci": {
+  "value": [
+   -0.0073106866606335,
+   -6.335881898756821e-07
+  ],
+  "text": "[-0.00731, -6.34e-07]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_graphite_frac_pct": {
+  "value": 0.010448339863319965,
+  "text": "+1%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_graphite_frac_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_graphite_frac_pmw": {
+  "value": 0.3827635623974297,
+  "text": "0.383",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_graphite_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_graphite_frac_ci": {
+  "value": [
+   -0.0047309621806663,
+   0.0213010669668507
+  ],
+  "text": "[-0.00473, 0.0213]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_si_d50_um_pct": {
+  "value": -0.11559926742218772,
+  "text": "-12%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_si_d50_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_si_d50_um_pmw": {
+  "value": 0.5761158495712273,
+  "text": "0.576",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_si_d50_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_si_d50_um_ci": {
+  "value": [
+   -0.2031946106595354,
+   0.0291180591705051
+  ],
+  "text": "[-0.203, 0.0291]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_large_gap_frac_pct": {
+  "value": -0.5285386729140776,
+  "text": "-53%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_large_gap_frac_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_large_gap_frac_pmw": {
+  "value": 0.4730110257924387,
+  "text": "0.473",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_large_gap_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_large_gap_frac_ci": {
+  "value": [
+   -0.0189500302570148,
+   0.0027496220390051
+  ],
+  "text": "[-0.019, 0.00275]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_gr_chord_ratio_hv_pct": {
+  "value": -0.010118821426680288,
+  "text": "-1%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_gr_chord_ratio_hv_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_gr_chord_ratio_hv_pmw": {
+  "value": 0.5342324850334005,
+  "text": "0.534",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_gr_chord_ratio_hv_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_gr_chord_ratio_hv_ci": {
+  "value": [
+   -0.0381099548194528,
+   0.0158773594213037
+  ],
+  "text": "[-0.0381, 0.0159]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_corr_len_gr_um_pct": {
+  "value": 0.03099080778866855,
+  "text": "+3%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_corr_len_gr_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_corr_len_gr_um_pmw": {
+  "value": 0.6794753120427586,
+  "text": "0.679",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_corr_len_gr_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_corr_len_gr_um_ci": {
+  "value": [
+   -0.0336193802298329,
+   0.1037803628018218
+  ],
+  "text": "[-0.0336, 0.104]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_inlens_bulk_texture_pct": {
+  "value": -0.05964332300703403,
+  "text": "-6%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_inlens_bulk_texture_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_inlens_bulk_texture_pmw": {
+  "value": 0.5342324850334005,
+  "text": "0.534",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_inlens_bulk_texture_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_inlens_bulk_texture_ci": {
+  "value": [
+   -11.042984669148428,
+   4.638830157688686
+  ],
+  "text": "[-11, 4.64]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_pore_frac_pct": {
+  "value": -0.04827947529683177,
+  "text": "-5%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_pore_frac_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_pore_frac_pmw": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_pore_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_pore_frac_ci": {
+  "value": [
+   -0.0188191330293184,
+   0.007254142238949
+  ],
+  "text": "[-0.0188, 0.00725]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_pore_thick_d50_um_pct": {
+  "value": -0.03762538251949983,
+  "text": "-4%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_pore_thick_d50_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_pore_thick_d50_um_pmw": {
+  "value": 0.9240375833307632,
+  "text": "0.924",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_pore_thick_d50_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_pore_thick_d50_um_ci": {
+  "value": [
+   -0.0371740483659729,
+   0.0157824895140417
+  ],
+  "text": "[-0.0372, 0.0158]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_silicon_frac_pct": {
+  "value": -0.0455564653503953,
+  "text": "-5%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_silicon_frac_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_silicon_frac_pmw": {
+  "value": 0.709751982063195,
+  "text": "0.710",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_silicon_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_silicon_frac_ci": {
+  "value": [
+   -0.0143869817900113,
+   0.0091574745533168
+  ],
+  "text": "[-0.0144, 0.00916]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_pores_per_mm2_pct": {
+  "value": -0.013897785896468642,
+  "text": "-1%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_pores_per_mm2_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_pores_per_mm2_pmw": {
+  "value": 0.4938746735085408,
+  "text": "0.494",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_pores_per_mm2_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_pores_per_mm2_ci": {
+  "value": [
+   -15341.300664337668,
+   13534.14490617062
+  ],
+  "text": "[-1.53e+04, 1.35e+04]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_ring_porosity_500nm_pct": {
+  "value": 0.0268533163014625,
+  "text": "+3%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_ring_porosity_500nm_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_ring_porosity_500nm_pmw": {
+  "value": 0.3175923999722627,
+  "text": "0.318",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_ring_porosity_500nm_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_ring_porosity_500nm_ci": {
+  "value": [
+   -0.0202065701533671,
+   0.0288230577262932
+  ],
+  "text": "[-0.0202, 0.0288]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_si_solidity_pct": {
+  "value": 0.002028929362349313,
+  "text": "+0%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_si_solidity_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_si_solidity_pmw": {
+  "value": 0.5761158495712273,
+  "text": "0.576",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_si_solidity_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_si_solidity_ci": {
+  "value": [
+   -0.007333512424687,
+   0.0114299412819543
+  ],
+  "text": "[-0.00733, 0.0114]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_si_clarkevans_R_pct": {
+  "value": 0.006242192724022628,
+  "text": "+1%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_si_clarkevans_R_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_si_clarkevans_R_pmw": {
+  "value": 0.6640027275038718,
+  "text": "0.664",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_si_clarkevans_R_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_si_clarkevans_R_ci": {
+  "value": [
+   -0.0250206611330214,
+   0.0320573511074269
+  ],
+  "text": "[-0.025, 0.0321]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_Batch_2_ring_porosity_250nm_pct": {
+  "value": -0.024436483230215345,
+  "text": "-2%",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_Batch_2_ring_porosity_250nm_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_Batch_2_ring_porosity_250nm_pmw": {
+  "value": 0.8524952037537852,
+  "text": "0.852",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_Batch_2_ring_porosity_250nm_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_Batch_2_ring_porosity_250nm_ci": {
+  "value": [
+   -0.0187916563148439,
+   0.0142738701453311
+  ],
+  "text": "[-0.0188, 0.0143]",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_bse_bulk_texture_pct": {
+  "value": 0.1619936436235284,
+  "text": "+16%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_bse_bulk_texture_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_bse_bulk_texture_pmw": {
+  "value": 0.0031897926634768,
+  "text": "0.003",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_bse_bulk_texture_pholm": {
+  "value": 0.0669856459330143,
+  "text": "0.067",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_bse_bulk_texture_ci": {
+  "value": [
+   1.028653435987585,
+   2.766568561441758
+  ],
+  "text": "[1.03, 2.77]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_gr_chord_h_um_pct": {
+  "value": 0.12502781305088934,
+  "text": "+13%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_gr_chord_h_um_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_gr_chord_h_um_pmw": {
+  "value": 0.0706311232627022,
+  "text": "0.071",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_gr_chord_h_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_gr_chord_h_um_ci": {
+  "value": [
+   0.1039320219128027,
+   0.8406616567461277
+  ],
+  "text": "[0.104, 0.841]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_inlens_bulk_texture_pct": {
+  "value": -0.19976174250875045,
+  "text": "-20%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_inlens_bulk_texture_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_inlens_bulk_texture_pmw": {
+  "value": 0.0849092428039796,
+  "text": "0.085",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_inlens_bulk_texture_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_inlens_bulk_texture_ci": {
+  "value": [
+   -15.419322715086093,
+   -4.9695154986662
+  ],
+  "text": "[-15.4, -4.97]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_gr_chord_ratio_hv_pct": {
+  "value": 0.02746259133983369,
+  "text": "+3%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_gr_chord_ratio_hv_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_gr_chord_ratio_hv_pmw": {
+  "value": 0.189336978810663,
+  "text": "0.189",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_gr_chord_ratio_hv_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_gr_chord_ratio_hv_ci": {
+  "value": [
+   -0.0067161651232273,
+   0.0716321495610484
+  ],
+  "text": "[-0.00672, 0.0716]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_gr_st_coherence_pct": {
+  "value": -0.06516179808547311,
+  "text": "-7%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_gr_st_coherence_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_gr_st_coherence_pmw": {
+  "value": 0.0583276372750057,
+  "text": "0.058",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_gr_st_coherence_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_gr_st_coherence_ci": {
+  "value": [
+   -0.0121441432592623,
+   -0.0019778668661328
+  ],
+  "text": "[-0.0121, -0.00198]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_graphite_frac_pct": {
+  "value": 0.020344424968571938,
+  "text": "+2%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_graphite_frac_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_graphite_frac_pmw": {
+  "value": 0.0583276372750057,
+  "text": "0.058",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_graphite_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_graphite_frac_ci": {
+  "value": [
+   0.004176333017958,
+   0.0312163582872852
+  ],
+  "text": "[0.00418, 0.0312]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_etd_roughness_pct": {
+  "value": 0.0958561301668777,
+  "text": "+10%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_etd_roughness_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_etd_roughness_pmw": {
+  "value": 0.1196172248803827,
+  "text": "0.120",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_etd_roughness_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_etd_roughness_ci": {
+  "value": [
+   0.0009093902265543,
+   0.0050849574639955
+  ],
+  "text": "[0.000909, 0.00508]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_inlens_edge_density_pct": {
+  "value": 0.13473177089220426,
+  "text": "+13%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_inlens_edge_density_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_inlens_edge_density_pmw": {
+  "value": 0.1403508771929824,
+  "text": "0.140",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_inlens_edge_density_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_inlens_edge_density_ci": {
+  "value": [
+   0.0008328979352817,
+   0.0099438935370348
+  ],
+  "text": "[0.000833, 0.00994]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_pore_frac_pct": {
+  "value": -0.13170582680066376,
+  "text": "-13%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_pore_frac_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_pore_frac_pmw": {
+  "value": 0.189336978810663,
+  "text": "0.189",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_pore_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_pore_frac_ci": {
+  "value": [
+   -0.0297598122983757,
+   -0.0017299299435616
+  ],
+  "text": "[-0.0298, -0.00173]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_pores_per_mm2_pct": {
+  "value": 0.05031214134238736,
+  "text": "+5%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_pores_per_mm2_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_pores_per_mm2_pmw": {
+  "value": 0.8795473532315636,
+  "text": "0.880",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_pores_per_mm2_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_pores_per_mm2_ci": {
+  "value": [
+   -13102.384711766275,
+   37438.41650077198
+  ],
+  "text": "[-1.31e+04, 3.74e+04]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_large_gap_frac_pct": {
+  "value": -0.6736943429015997,
+  "text": "-67%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_large_gap_frac_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_large_gap_frac_pmw": {
+  "value": 0.2966946691381074,
+  "text": "0.297",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_large_gap_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_large_gap_frac_ci": {
+  "value": [
+   -0.0209527142847051,
+   -0.0006730241015058
+  ],
+  "text": "[-0.021, -0.000673]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_pore_thick_d10_um_pct": {
+  "value": -0.06811550544830608,
+  "text": "-7%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_pore_thick_d10_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_pore_thick_d10_um_pmw": {
+  "value": 0.9059718471040968,
+  "text": "0.906",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_pore_thick_d10_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_pore_thick_d10_um_ci": {
+  "value": [
+   -0.0073102059478041,
+   1.4893991632808428e-07
+  ],
+  "text": "[-0.00731, 1.49e-07]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_pore_thick_d50_um_pct": {
+  "value": -0.07549707106126935,
+  "text": "-8%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_pore_thick_d50_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_pore_thick_d50_um_pmw": {
+  "value": 0.5563576145950068,
+  "text": "0.556",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_pore_thick_d50_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_pore_thick_d50_um_ci": {
+  "value": [
+   -0.0545750213435284,
+   0.0110448091791474
+  ],
+  "text": "[-0.0546, 0.011]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_corr_len_gr_um_pct": {
+  "value": 0.04780085458287622,
+  "text": "+5%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_corr_len_gr_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_corr_len_gr_um_pmw": {
+  "value": 0.3883917061553178,
+  "text": "0.388",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_corr_len_gr_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_corr_len_gr_um_ci": {
+  "value": [
+   -0.026459351314794,
+   0.1146917416327237
+  ],
+  "text": "[-0.0265, 0.115]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_si_clarkevans_R_pct": {
+  "value": 0.01965093801786636,
+  "text": "+2%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_si_clarkevans_R_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_si_clarkevans_R_pmw": {
+  "value": 0.4928989139515455,
+  "text": "0.493",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_si_clarkevans_R_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_si_clarkevans_R_ci": {
+  "value": [
+   -0.0242878350279047,
+   0.0474086099764819
+  ],
+  "text": "[-0.0243, 0.0474]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_si_d50_um_pct": {
+  "value": -0.07713353344781332,
+  "text": "-8%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_si_d50_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_si_d50_um_pmw": {
+  "value": 0.9396217817270448,
+  "text": "0.940",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_si_d50_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_si_d50_um_ci": {
+  "value": [
+   -0.1826198702892142,
+   0.0537983269028534
+  ],
+  "text": "[-0.183, 0.0538]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_ring_porosity_500nm_pct": {
+  "value": 0.04367911251105119,
+  "text": "+4%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_ring_porosity_500nm_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_ring_porosity_500nm_pmw": {
+  "value": 0.3586997797524113,
+  "text": "0.359",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_ring_porosity_500nm_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_ring_porosity_500nm_ci": {
+  "value": [
+   -0.0208011984775376,
+   0.0328569531701271
+  ],
+  "text": "[-0.0208, 0.0329]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_si_solidity_pct": {
+  "value": 0.003104178379746277,
+  "text": "+0%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_si_solidity_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_si_solidity_pmw": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_si_solidity_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_si_solidity_ci": {
+  "value": [
+   -0.0055151261135378,
+   0.0122061515910015
+  ],
+  "text": "[-0.00552, 0.0122]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_silicon_frac_pct": {
+  "value": -0.0241908610786212,
+  "text": "-2%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_silicon_frac_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_silicon_frac_pmw": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_silicon_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_silicon_frac_ci": {
+  "value": [
+   -0.0135251797508302,
+   0.0103966800950471
+  ],
+  "text": "[-0.0135, 0.0104]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_1_ring_porosity_250nm_pct": {
+  "value": -0.009428227015830029,
+  "text": "-1%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_1 vs Batch_3 (5 vs 17 images)"
+ },
+ "d_nf_Batch_1_ring_porosity_250nm_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_1_ring_porosity_250nm_pmw": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_1_ring_porosity_250nm_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_1_ring_porosity_250nm_ci": {
+  "value": [
+   -0.0196719297480293,
+   0.0169632599935042
+  ],
+  "text": "[-0.0197, 0.017]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_gr_st_coherence_pct": {
+  "value": -0.08431677689962631,
+  "text": "-8%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_gr_st_coherence_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_gr_st_coherence_pmw": {
+  "value": 0.0160240852460532,
+  "text": "0.016",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_gr_st_coherence_pholm": {
+  "value": 0.3204817049210641,
+  "text": "0.320",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_gr_st_coherence_ci": {
+  "value": [
+   -0.0146927762432258,
+   -0.0034750725447881
+  ],
+  "text": "[-0.0147, -0.00348]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_bse_bulk_texture_pct": {
+  "value": 0.15181141246296181,
+  "text": "+15%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_bse_bulk_texture_class": {
+  "value": "different",
+  "text": "different",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_bse_bulk_texture_pmw": {
+  "value": 0.0010459283914661,
+  "text": "0.001",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_bse_bulk_texture_pholm": {
+  "value": 0.0219644962207891,
+  "text": "0.022",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_bse_bulk_texture_ci": {
+  "value": [
+   0.9805132825835424,
+   2.6175277597763964
+  ],
+  "text": "[0.981, 2.62]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_etd_roughness_pct": {
+  "value": 0.09816899586850088,
+  "text": "+10%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_etd_roughness_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_etd_roughness_pmw": {
+  "value": 0.1471234079929732,
+  "text": "0.147",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_etd_roughness_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_etd_roughness_ci": {
+  "value": [
+   0.0009879923797361,
+   0.0048545062471525
+  ],
+  "text": "[0.000988, 0.00485]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_inlens_edge_density_pct": {
+  "value": 0.13562014541765752,
+  "text": "+14%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_inlens_edge_density_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_inlens_edge_density_pmw": {
+  "value": 0.1661697062154728,
+  "text": "0.166",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_inlens_edge_density_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_inlens_edge_density_ci": {
+  "value": [
+   0.0015691587302301,
+   0.0093320298392106
+  ],
+  "text": "[0.00157, 0.00933]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_gr_chord_h_um_pct": {
+  "value": 0.06990022130652057,
+  "text": "+7%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_gr_chord_h_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_gr_chord_h_um_pmw": {
+  "value": 0.3827635623974297,
+  "text": "0.383",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_gr_chord_h_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_gr_chord_h_um_ci": {
+  "value": [
+   -0.0461958251192406,
+   0.5820883028849455
+  ],
+  "text": "[-0.0462, 0.582]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_pore_thick_d10_um_pct": {
+  "value": -0.06812451178494516,
+  "text": "-7%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_pore_thick_d10_um_class": {
+  "value": "suggestive",
+  "text": "suggestive",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_pore_thick_d10_um_pmw": {
+  "value": 0.291928296761336,
+  "text": "0.292",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_pore_thick_d10_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_pore_thick_d10_um_ci": {
+  "value": [
+   -0.0073105369971073,
+   -3.556354678498426e-07
+  ],
+  "text": "[-0.00731, -3.56e-07]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_graphite_frac_pct": {
+  "value": 0.010448339863319965,
+  "text": "+1%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_graphite_frac_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_graphite_frac_pmw": {
+  "value": 0.3827635623974297,
+  "text": "0.383",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_graphite_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_graphite_frac_ci": {
+  "value": [
+   -0.0045060970076476,
+   0.0211754076125723
+  ],
+  "text": "[-0.00451, 0.0212]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_si_d50_um_pct": {
+  "value": -0.11559926742218772,
+  "text": "-12%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_si_d50_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_si_d50_um_pmw": {
+  "value": 0.5761158495712273,
+  "text": "0.576",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_si_d50_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_si_d50_um_ci": {
+  "value": [
+   -0.1989795097597005,
+   0.022273636607211
+  ],
+  "text": "[-0.199, 0.0223]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_large_gap_frac_pct": {
+  "value": -0.5285386729140776,
+  "text": "-53%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_large_gap_frac_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_large_gap_frac_pmw": {
+  "value": 0.4730110257924387,
+  "text": "0.473",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_large_gap_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_large_gap_frac_ci": {
+  "value": [
+   -0.0191216933487105,
+   0.002250047228785
+  ],
+  "text": "[-0.0191, 0.00225]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_gr_chord_ratio_hv_pct": {
+  "value": -0.010118821426680288,
+  "text": "-1%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_gr_chord_ratio_hv_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_gr_chord_ratio_hv_pmw": {
+  "value": 0.5342324850334005,
+  "text": "0.534",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_gr_chord_ratio_hv_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_gr_chord_ratio_hv_ci": {
+  "value": [
+   -0.0401560123276531,
+   0.0153848889867437
+  ],
+  "text": "[-0.0402, 0.0154]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_corr_len_gr_um_pct": {
+  "value": 0.03099080778866855,
+  "text": "+3%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_corr_len_gr_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_corr_len_gr_um_pmw": {
+  "value": 0.6794753120427586,
+  "text": "0.679",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_corr_len_gr_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_corr_len_gr_um_ci": {
+  "value": [
+   -0.0361521375078144,
+   0.0995902330249681
+  ],
+  "text": "[-0.0362, 0.0996]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_inlens_bulk_texture_pct": {
+  "value": -0.05964332300703403,
+  "text": "-6%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_inlens_bulk_texture_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_inlens_bulk_texture_pmw": {
+  "value": 0.5342324850334005,
+  "text": "0.534",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_inlens_bulk_texture_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_inlens_bulk_texture_ci": {
+  "value": [
+   -10.824640006377924,
+   4.572207789060441
+  ],
+  "text": "[-10.8, 4.57]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_pore_frac_pct": {
+  "value": -0.04827947529683177,
+  "text": "-5%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_pore_frac_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_pore_frac_pmw": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_pore_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_pore_frac_ci": {
+  "value": [
+   -0.0187557467470211,
+   0.0073442714728955
+  ],
+  "text": "[-0.0188, 0.00734]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_pore_thick_d50_um_pct": {
+  "value": -0.03762538251949983,
+  "text": "-4%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_pore_thick_d50_um_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_pore_thick_d50_um_pmw": {
+  "value": 0.9240375833307632,
+  "text": "0.924",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_pore_thick_d50_um_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_pore_thick_d50_um_ci": {
+  "value": [
+   -0.0372069359242311,
+   0.0150855734912045
+  ],
+  "text": "[-0.0372, 0.0151]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_silicon_frac_pct": {
+  "value": -0.0455564653503953,
+  "text": "-5%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_silicon_frac_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_silicon_frac_pmw": {
+  "value": 0.709751982063195,
+  "text": "0.710",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_silicon_frac_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_silicon_frac_ci": {
+  "value": [
+   -0.0145548812242999,
+   0.0085716729533618
+  ],
+  "text": "[-0.0146, 0.00857]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_pores_per_mm2_pct": {
+  "value": -0.013897785896468642,
+  "text": "-1%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_pores_per_mm2_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_pores_per_mm2_pmw": {
+  "value": 0.4938746735085408,
+  "text": "0.494",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_pores_per_mm2_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_pores_per_mm2_ci": {
+  "value": [
+   -15410.46215684572,
+   13079.6180367868
+  ],
+  "text": "[-1.54e+04, 1.31e+04]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_ring_porosity_500nm_pct": {
+  "value": 0.0268533163014625,
+  "text": "+3%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_ring_porosity_500nm_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_ring_porosity_500nm_pmw": {
+  "value": 0.3175923999722627,
+  "text": "0.318",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_ring_porosity_500nm_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_ring_porosity_500nm_ci": {
+  "value": [
+   -0.0193005723227318,
+   0.028178808795249
+  ],
+  "text": "[-0.0193, 0.0282]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_si_solidity_pct": {
+  "value": 0.002028929362349313,
+  "text": "+0%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_si_solidity_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_si_solidity_pmw": {
+  "value": 0.5761158495712273,
+  "text": "0.576",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_si_solidity_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_si_solidity_ci": {
+  "value": [
+   -0.0073451069543305,
+   0.0118281629985225
+  ],
+  "text": "[-0.00735, 0.0118]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_si_clarkevans_R_pct": {
+  "value": 0.006242192724022628,
+  "text": "+1%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_si_clarkevans_R_class": {
+  "value": "equivalent",
+  "text": "equivalent",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_si_clarkevans_R_pmw": {
+  "value": 0.6640027275038718,
+  "text": "0.664",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_si_clarkevans_R_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_si_clarkevans_R_ci": {
+  "value": [
+   -0.0246928539569878,
+   0.0310897781759002
+  ],
+  "text": "[-0.0247, 0.0311]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "d_nf_Batch_2_ring_porosity_250nm_pct": {
+  "value": -0.024436483230215345,
+  "text": "-2%",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "pct_delta, Batch_2 vs Batch_3 (7 vs 17 images)"
+ },
+ "d_nf_Batch_2_ring_porosity_250nm_class": {
+  "value": "undetermined",
+  "text": "undetermined",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "classification (different: CI excludes 0 and Holm p<0.05; suggestive: CI excludes 0 only; equivalent: CI within +/-10% of B3 mean; else undetermined)"
+ },
+ "d_nf_Batch_2_ring_porosity_250nm_pmw": {
+  "value": 0.8524952037537852,
+  "text": "0.852",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Mann-Whitney two-sided p (uncorrected)"
+ },
+ "d_nf_Batch_2_ring_porosity_250nm_pholm": {
+  "value": 1.0,
+  "text": "1.000",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "Holm-adjusted p (committed table; see ledger note)"
+ },
+ "d_nf_Batch_2_ring_porosity_250nm_ci": {
+  "value": [
+   -0.0181637566209607,
+   0.0140098915619778
+  ],
+  "text": "[-0.0182, 0.014]",
+  "source": "analysis/outputs/tables/deltas_noflag.csv",
+  "how": "bootstrap 95% CI on the mean difference (images resampled)"
+ },
+ "holm_survivors": {
+  "value": [
+   [
+    "Batch_1",
+    "bse_bulk_texture"
+   ],
+   [
+    "Batch_2",
+    "bse_bulk_texture"
+   ]
+  ],
+  "text": "Batch_1:bse_bulk_texture; Batch_2:bse_bulk_texture",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "rows with p_holm < 0.05"
+ },
+ "n_tests_per_batch": {
+  "value": 20,
+  "text": "20",
+  "source": "analysis/outputs/tables/deltas.csv",
+  "how": "kept features compared per batch"
+ },
+ "loo_correct": {
+  "value": 15,
+  "text": "15",
+  "source": "analysis/outputs/tables/loo_predictions_allfeatures.csv",
+  "how": "pred_batch == batch"
+ },
+ "loo_acc": {
+  "value": 0.4838709677419355,
+  "text": "48%",
+  "source": "analysis/outputs/tables/loo_predictions_allfeatures.csv",
+  "how": "share of 31 held-out images assigned to their own batch"
+ },
+ "loo_Batch_1": {
+  "value": [
+   3,
+   7
+  ],
+  "text": "3/7",
+  "source": "analysis/outputs/tables/loo_predictions_allfeatures.csv",
+  "how": "correct/total, Batch_1"
+ },
+ "loo_Batch_2": {
+  "value": [
+   5,
+   7
+  ],
+  "text": "5/7",
+  "source": "analysis/outputs/tables/loo_predictions_allfeatures.csv",
+  "how": "correct/total, Batch_2"
+ },
+ "loo_Batch_3": {
+  "value": [
+   7,
+   17
+  ],
+  "text": "7/17",
+  "source": "analysis/outputs/tables/loo_predictions_allfeatures.csv",
+  "how": "correct/total, Batch_3"
+ },
+ "loo_balanced": {
+  "value": 0.5182072829131652,
+  "text": "52%",
+  "source": "analysis/outputs/tables/loo_predictions_allfeatures.csv",
+  "how": "mean of per-batch recall"
+ },
+ "majority_acc": {
+  "value": 0.5483870967741935,
+  "text": "55%",
+  "source": "analysis/outputs/tables/loo_predictions_allfeatures.csv",
+  "how": "accuracy of always answering Batch_3 (17/31)"
+ },
+ "loo_acc_safe": {
+  "value": 0.41935483870967744,
+  "text": "42%",
+  "source": "analysis/outputs/tables/loo_predictions_safe.csv",
+  "how": "artefact-safe variant (no bse_bulk_texture/etd_roughness)"
+ },
+ "b3_out": {
+  "value": [
+   7,
+   17
+  ],
+  "text": "7 of 17",
+  "source": "analysis/outputs/tables/loo_predictions_allfeatures.csv",
+  "how": "held-out Batch_3 images called OUT of their own envelope"
+ },
+ "shuffled_acc": {
+  "value": 0.3516129032258064,
+  "text": "35%",
+  "source": "provenance/loo_summary_regenerated.csv",
+  "how": "regenerated with main's run_all.stage_stats(); committed loo_summary.csv is stale (pre si_d10 removal)"
+ },
+ "group5_Batch_1": {
+  "value": 0.97,
+  "text": "97%",
+  "source": "analysis/outputs/tables/images_needed.csv",
+  "how": "IN-SAMPLE: model fitted on all images incl. the sampled ones"
+ },
+ "group5_Batch_2": {
+  "value": 1.0,
+  "text": "100%",
+  "source": "analysis/outputs/tables/images_needed.csv",
+  "how": "IN-SAMPLE: model fitted on all images incl. the sampled ones"
+ },
+ "loo_feature_counts": {
+  "value": {
+   "corr_len_gr_um": 31,
+   "silicon_frac": 31,
+   "etd_roughness": 31,
+   "bse_bulk_texture": 30,
+   "pores_per_mm2": 29,
+   "gr_st_coherence": 22,
+   "si_clarkevans_R": 9,
+   "inlens_bulk_texture": 1,
+   "ring_porosity_250nm": 1,
+   "si_solidity": 1
+  },
+  "text": "",
+  "source": "analysis/outputs/tables/loo_predictions_allfeatures.csv",
+  "how": "how often each feature was selected across the 31 folds"
+ },
+ "dfn_censored_ah": {
+  "value": 5.249999999999998,
+  "text": "5.25 Ah",
+  "source": "analysis/outputs/tables/dfn_capacity.csv",
+  "how": "every C/10, C/2, 1C run returns 1.05 x nominal = time cut-off"
+ },
+ "dfn_censored_spread": {
+  "value": 8.51910812704787e-15,
+  "text": "8.5e-15",
+  "source": "analysis/outputs/tables/dfn_capacity.csv",
+  "how": "max std of capacity across resamples at <=1C"
+ },
+ "dfn_Batch_1_measured_2C": {
+  "value": -0.02724650108853667,
+  "text": "-2.7%",
+  "source": "analysis/outputs/tables/dfn_deltas.csv",
+  "how": "2C capacity vs Batch_3, measured porosity (interval -0.186..-0.029 Ah: CI excludes 0)"
+ },
+ "dfn_Batch_2_measured_2C": {
+  "value": -0.029061992766299154,
+  "text": "-2.9%",
+  "source": "analysis/outputs/tables/dfn_deltas.csv",
+  "how": "2C capacity vs Batch_3, measured porosity (interval -0.196..-0.030 Ah: CI excludes 0)"
+ },
+ "dfn_Batch_1_corrected_2C": {
+  "value": 5.9894399305657996e-05,
+  "text": "+0.0%",
+  "source": "analysis/outputs/tables/dfn_deltas.csv",
+  "how": "2C capacity vs Batch_3, corrected porosity (interval -0.000..0.001 Ah: CI includes 0)"
+ },
+ "dfn_Batch_2_corrected_2C": {
+  "value": -4.1033122160211e-05,
+  "text": "-0.0%",
+  "source": "analysis/outputs/tables/dfn_deltas.csv",
+  "how": "2C capacity vs Batch_3, corrected porosity (interval -0.000..0.000 Ah: CI includes 0)"
+ },
+ "dfn_cap2C_Batch_1": {
+  "value": 3.8133540665196,
+  "text": "3.81 Ah",
+  "source": "analysis/outputs/tables/dfn_capacity.csv",
+  "how": "2C, measured porosity, mean of 30"
+ },
+ "dfn_cap2C_Batch_2": {
+  "value": 3.806237039873204,
+  "text": "3.81 Ah",
+  "source": "analysis/outputs/tables/dfn_capacity.csv",
+  "how": "2C, measured porosity, mean of 30"
+ },
+ "dfn_cap2C_Batch_3": {
+  "value": 3.920164842158721,
+  "text": "3.92 Ah",
+  "source": "analysis/outputs/tables/dfn_capacity.csv",
+  "how": "2C, measured porosity, mean of 30"
+ },
+ "ex_id": {
+  "value": "cfe5vt7s",
+  "text": "cfe5vt7s",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "Batch_3 photo with the 2nd-smallest mean robust |z| over the five slide-4 markers (rank 2 of 17); chosen over rank 1 (pl8uabbv) for clearer particles in the display crop"
+ },
+ "ex_batch": {
+  "value": "Batch_3",
+  "text": "Batch 3",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": ""
+ },
+ "ex_pore_frac": {
+  "value": 0.1078044642857142,
+  "text": "0.1078",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "pore_frac of cfe5vt7s (subset=full)"
+ },
+ "ex_silicon_frac": {
+  "value": 0.0704334478021978,
+  "text": "0.07043",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "silicon_frac of cfe5vt7s (subset=full)"
+ },
+ "ex_si_d50_um": {
+  "value": 0.6567477536426884,
+  "text": "0.6567",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "si_d50_um of cfe5vt7s (subset=full)"
+ },
+ "ex_ring_porosity_250nm": {
+  "value": 0.0855896604537434,
+  "text": "0.08559",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "ring_porosity_250nm of cfe5vt7s (subset=full)"
+ },
+ "ex_gr_chord_h_um": {
+  "value": 3.750254831678727,
+  "text": "3.75",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "gr_chord_h_um of cfe5vt7s (subset=full)"
+ },
+ "ex_gr_chord_v_um": {
+  "value": 3.092712658624747,
+  "text": "3.093",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "gr_chord_v_um of cfe5vt7s (subset=full)"
+ },
+ "ex_gr_chord_ratio_hv": {
+  "value": 1.2126101728915135,
+  "text": "1.213",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "gr_chord_ratio_hv of cfe5vt7s (subset=full)"
+ },
+ "ex_si_border_pore": {
+  "value": 0.0166407082547749,
+  "text": "0.01664",
+  "source": "analysis/outputs/tables/exp_newfeat.csv",
+  "how": "si_border_pore of cfe5vt7s (subset=full)"
+ },
+ "ex_pores_per_mm2": {
+  "value": 163623.44640229325,
+  "text": "1.636e+05",
+  "source": "analysis/outputs/tables/features.csv",
+  "how": "pores_per_mm2 of cfe5vt7s (subset=full)"
+ },
+ "ex_t_lo": {
+  "value": 0.2772278187657889,
+  "text": "0.277",
+  "source": "analysis/outputs/tables/segment_info.csv",
+  "how": "pore cut on the normalised [0,1] scale"
+ },
+ "ex_t_b": {
+  "value": 0.6067993515642793,
+  "text": "0.607",
+  "source": "analysis/outputs/tables/segment_info.csv",
+  "how": "bright cut on the normalised [0,1] scale"
+ },
+ "ex_n_particles": {
+  "value": 327,
+  "text": "327",
+  "source": "analysis/outputs/tables/particles.csv",
+  "how": "watershed particles in the example image"
+ },
+ "ex_contact_number": {
+  "value": 0.22629969418960244,
+  "text": "23%",
+  "source": "analysis/outputs/tables/particles.csv",
+  "how": "share of particles with d_min_px <= 3 (presentation-derived from main's per-particle table; not a main feature)"
+ },
+ "ex_contact_area": {
+  "value": 0.48910833717514657,
+  "text": "49%",
+  "source": "analysis/outputs/tables/particles.csv",
+  "how": "share of particle area in particles with d_min_px <= 3 (presentation-derived; not a main feature)"
+ }
+}

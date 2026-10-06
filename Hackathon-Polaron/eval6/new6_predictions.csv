@@ -1,0 +1,7 @@
+image_id,envelope_pick,envelope_cov_B1,envelope_cov_B2,envelope_cov_B3,medianz_pick,confidence,acq_baseline_pick,acq_z_B1,acq_z_B2,acq_z_B3,frame_h_px,frame_group_batches,session_confound_flag,envelope_eq_acq
+img_0eryguqq,Batch_3,6,6,7,Batch_3,best envelope coverage 7/9 (median-z 0.65),Batch_3,4.139,1.043,0.174,1612,Batch_3,True,True
+img_4hq27w4c,Batch_1,9,8,6,Batch_1,envelope-consistent (9/9 features inside Batch_1; Batch_2 8/9; Batch_3 6/9),Batch_1,0.155,0.716,0.982,2148,Batch_2+Batch_1,False,True
+img_fhwrjtet,Batch_3,6,6,7,Batch_1,best envelope coverage 7/9 (median-z 0.92),Batch_3,3.17,0.734,0.386,1612,Batch_3,True,True
+img_fspqbkxl,inconclusive_between_1_2,9,9,7,Batch_1,inside multiple batch envelopes — the batches overlap and this image cannot be separated,Batch_1,0.174,0.751,0.978,2148,Batch_2+Batch_1,False,False
+img_soo2ax3r,inconclusive_between_1_3,9,7,9,Batch_1,inside multiple batch envelopes — the batches overlap and this image cannot be separated,Batch_1,0.133,0.776,0.992,2156,Batch_2+Batch_1,False,False
+img_y59rxmxl,inconclusive_between_1_3,9,7,9,Batch_1,inside multiple batch envelopes — the batches overlap and this image cannot be separated,Batch_1,0.347,0.648,0.786,1880,Batch_1,True,False

@@ -87,8 +87,8 @@ def markers_remote(path: str, batch: str, t_pore: float, t_si: float,
     im = io.load_bse(path, batch, downsample=downsample)
     seg = segment.segment(im, t_pore, t_si)
     ob = pd.DataFrame(objects_records)
-    part, fine = obj_.particle_mask(im, seg == config.SI, ob)
-    f = mk.extract_markers(im, seg, ob, part, fine)
+    part, fine, lab_part = obj_.particle_mask(im, seg == config.SI, ob)
+    f = mk.extract_markers(im, seg, ob, part, fine, si_labels=lab_part)
     png = None
     if want_overlay:
         fig_path = "/tmp/overlay.png"

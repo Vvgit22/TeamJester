@@ -1,0 +1,15 @@
+protocol,method,n,coverage,accuracy,balanced_acc
+LOO,envelope,31,0.871,0.593,0.398
+LOO,fractions,31,1.0,0.129,0.106
+LOO,frac+cluster,31,1.0,0.516,0.314
+LOO,frac+cl+corr,31,1.0,0.516,0.314
+LOO,frac+cl+c+orient,31,1.0,0.419,0.255
+LOO,acq_signature,31,1.0,0.613,0.485
+LOO,majority,31,1.0,0.548,0.333
+LOGO-inferred,envelope,31,0.774,0.542,0.283
+LOGO-inferred,fractions,31,1.0,0.097,0.087
+LOGO-inferred,frac+cluster,31,1.0,0.355,0.216
+LOGO-inferred,frac+cl+corr,31,1.0,0.419,0.255
+LOGO-inferred,frac+cl+c+orient,31,1.0,0.29,0.176
+LOGO-inferred,acq_signature,31,1.0,0.387,0.347
+LOGO-inferred,majority,31,1.0,0.548,0.333

@@ -1,0 +1,11 @@
+{
+  "_readme": "Copy this file (e.g. to new_batch.json), fill the fields you have, then run: python src/build_deck.py --repo <main worktree> --new-batch new_batch_results/new_batch.json. Either point to main's own output (categorise_csv or webapp_json, paths relative to this file) and let the row be generated, or write the observations yourself. Any text field you fill overrides the generated text. Leave unused fields empty.",
+  "name": "New batch",
+  "n_images": null,
+  "categorise_csv": "",
+  "webapp_json": "",
+  "observations": "",
+  "status": "",
+  "follow_up": "",
+  "notes": ""
+}
