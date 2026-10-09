@@ -1,4 +1,4 @@
-# TeamJester — Polaron Battery-Electrode Image Analysis
+# Battery-Electrode Image Analysis
 
 **The brief, in one line:** turn SEM/BSE cross-section images of battery-electrode
 material into structural measurements (pores, silicon, contacts), compare batches,
